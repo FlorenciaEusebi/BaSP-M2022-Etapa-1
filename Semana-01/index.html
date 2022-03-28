@@ -24,7 +24,14 @@
       <button style="background-color:#AACE9B;">Log In</button>
       <button style="background-color:#AACE9B;">Sign Up</button>
     </nav>
-
+    <sidebar>
+      <div class="Sidebar">
+        <div><a href="#Home">Home</a></div>
+        <div><a href="">Sign Up</a></div>
+        <div><a href="#Tools">Log In</a></div>
+        <div><a href="#Contact-Us">Contact Information</a></div>
+      </div>
+    </sidebar>
     <!--SECTIONS-->
     <div align="center">
       <img src="assets/Clock.png" width="100">
@@ -106,21 +113,52 @@
       <div class="Contact-Table">
         <table style="max-width:100%; background-color:#49A37B; border:1px solid black;" align="center">
           <tr>
-            <th style="border:1px solid black;">Leave your info and we’ll get in touch</th>
+            <th style="border:1px solid black;" colspan="2">Leave your info and we’ll get in touch</th>
           </tr>
+        <form action="" class="Contact">
           <tr>
-            <td style="border:1px solid black;">Name</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid black;">Email</td>
-          </tr>
-          <tr>
-            <td style="border:1px solid black;">Your message...</td>
-          </tr><tr>
             <td style="border:1px solid black;">
+              <label>Name</label>
+            </td>
+            <td>
+              <input type="text">
+            </td>
+          </tr>
+          <tr>
+            <td style="border:1px solid black;">
+              <label for="">Email</label>
+            </td>
+            <td>
+              <input type="text">
+            </td>
+          </tr>
+          <tr>
+            <td style="border:1px solid black;">
+              <label for="">Contact Area</label>
+            </td>
+            <td>
+              <input type="checkbox" id="Human-Resources" name="Human-Resources" value="HR">
+              <label for="Human-Resources"> Human Resources</label><br>
+              <input type="checkbox" id="System" name="System" value="System">
+              <label for="System"> System </label><br>
+              <input type="checkbox" id="Commerce" name="Commerce" value="Commerce">
+              <label for="Commerce"> Commerce</label>
+            </td>
+          </tr>
+          <tr>
+            <td style="border:1px solid black;">
+              <label for="">Your message...</label>
+            </td>
+            <td>
+              <input type="text" value="Write your message here...">
+            </td>
+          </tr>
+          <tr>
+            <td style="border:1px solid black;" colspan="2">
               <button style="background-color:#AACE9B;">SEND</button>
             </td>
           </tr>
+        </form>
         </table>
       </div>
     </section>
