@@ -12,5 +12,3 @@ We provide Software Development services to companies around the world.
 ## About the author
 Name: Florencia
 Surname: Eusebi
-
-
