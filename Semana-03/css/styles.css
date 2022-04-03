@@ -3,24 +3,115 @@ body {
  font-family: 'Roboto', sans-serif;
 }
 header {
-  /*position: fixed;*/
+  display: block;
+  padding: 10px;
   background-color:#49A37B;
   background: linear-gradient(to bottom,  #49A37B,  #add6c4);
-  display: block;
-  padding: 50px;
 }
 aside {
-  position:relative;
+  position: absolute;
+  width: 198px;
+  height: 245px;
+  left: 0px;
   background-color:#49A37B;
   background: linear-gradient(to bottom,  #49A37B,  #add6c4);
-  width: 200px;
-  display: flex;
-  float: left;
 }
-.title {
-  display: flex;
-  float: center;
-  padding-left: 200px;
-  margin-left: auto;
-  margin-right: auto;
+h1 {
+  position: relative;
+  display: inline-block;
+  top: 20px;
+  left: 750px;
+  font-weight: 500;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+p {
+  font-weight: 300;
+  font-size: 24px;
+  text-align: center;
+}
+.main-logo {
+  position: relative;
+  display: inline;
+  width: 15%;
+  height: auto;
+}
+.section-links {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+  width: 80%;
+  height: auto;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 24px;
+}
+.section-links ul {
+  list-style-type: none;
+}
+.section-links li {
+  display: inline-block;
+  padding: 10px;
+  text-transform: uppercase;
+}
+.section-links a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.wrapper{
+  width: 100%;
+  height: 300px;
+}
+.sidebar ul {
+  list-style-type: none;
+}
+.sidebar li {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.sidebar a {
+  color: #000;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 60px;
+  text-decoration: none;
+}
+.sidebar li:first-child {
+  text-transform: uppercase;
+}
+.job-description {
+  position: relative;
+  display: inline-block;
+  top: 40px;
+  left: 337px;
+  width: 1000px;
+  height: 250px;
+  background-color: #AACE9B;
+}
+.main-subtitle {
+  position: relative;
+  display: inline-block;
+  width: 500px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 250px;
+  color: #000;
+  font-size: 28px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+.job-description p{
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  padding-left: 250px;
+}
+.secondary-logo {
+  position: relative;
+  display: inline-block;
+  width: 81px;
+  height: 182px;
+  left: 100px;
 }
