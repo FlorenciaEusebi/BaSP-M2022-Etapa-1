@@ -12,23 +12,25 @@
   <body>
     <header>
       <img src="/Images/Logo.png" title="Logo" alt="Logo">
-      <span>
-        <a href="#our-job">Our Job</a>
-        <a href="#functionalities">Functionalities</a>
-        <a href="#why-us">Why Us</a>
-        <a href="#contact-us">Contact Us</a>
-        <a href="#who-we-are">Who We Are</a>
-        <a href="#site-map">Site Map</a>
-      </span>
+      <ul>
+        <li><a href="#our-job">Our Job</a></li>
+        <li><a href="#functionalities">Functionalities</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
+        <li><a href="#who-we-are">Who We Are</a></li>
+        <li><a href="#site-map">Site Map</a></li>
+      </ul>
     </header>
-    <aside>
-      <div><a href="#our-job">Home</a></div>
-      <div><a href="">Sign Up</a></div>
-      <div><a href="">Log In</a></div>
-      <div><a href="#contact-us">Contact Us</a></div>
-    </aside>
-    <div class="title">
-      <h1>Trackgenix🕗</h1>
+    <div class="wrapper">
+      <aside class="sidebar">
+        <li><a href="#our-job">Home</a></li>
+        <li><a href="">Sign Up</a></li>
+        <li><a href="">Log In</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
+      </aside>
+      <div class="title">
+        <h1>Trackgenix🕗</h1>
+      </div>
     </div>
     <section id="our-job">
       <h2>Our Job</h2>
@@ -78,12 +80,12 @@
             <div>
               <label>Contact Area</label>
             </div>
-            <input type="checkbox" id="human-resources" name="human-resources" value="human-resources">
-            <label for="human-resources"> Human Resources</label>
-            <input type="checkbox" id="system" name="system" value="system">
-            <label for="system"> System</label>
-            <input type="checkbox" id="commerce" name="commerce" value="commerce">
-            <label for="commerce"> Commerce</label>
+            <input type="radio" id="human-resources" name="human-resources" value="human-resources">
+            <label for="human-resources">Human Resources</label>
+            <input type="radio" id="system" name="system" value="system">
+            <label for="system">System</label>
+            <input type="radio" id="commerce" name="commerce" value="commerce">
+            <label for="commerce">Commerce</label>
           </div>
           <div>
               <textarea type="text" name="message" placeholder="Your message..."></textarea>
