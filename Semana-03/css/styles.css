@@ -42,11 +42,21 @@ h3 {
 }
 form {
   max-width: 500px;
-  height: 400px;
+  height: auto;
   margin-top: 30px;
   margin-left: 40%;
   border: 1px solid black;
   align-items: center;
+}
+h4 {
+  position: relative;
+  /*display: inline-block;*/
+  width: 25%;
+  left: 50%;
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
 }
 #functionalities, #why-us, #contact-us, #who-we-are, #site-map {
   position: relative;
@@ -216,13 +226,33 @@ form {
 }
 .form-body input[type=radio] {
   display: inline-block;
-  margin-top: 20px;
   width: 10%;
-  background-color: #AACE9B;
+  height: 15px;
 }
-/*.form-body input[type=radio] {
-  width: 25%;
+.form-body textarea {
+  width: 99%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   height: 50px;
-  background-color: #AACE9B;
+  background-color:#AACE9B;
   font-size: 16px;
-}*/
+}
+.form-button {
+  width: 100%;
+  background-color:#AACE9B;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.who-we-are-paragraph {
+  width: 100%;
+  margin-top: 70px;
+}
+.map, .company, .support {
+  display: inline-block;
+  width: 236px;
+  height: 309px;
+  /*margin-left: 50px;
+  margin-right: auto;*/
+  background-color: #add6c4;
+}
