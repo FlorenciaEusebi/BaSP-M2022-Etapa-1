@@ -16,6 +16,7 @@ aside {
   width: 198px;
   height: 245px;
   left: 0px;
+  margin-right: 100px;
   background-color:#49A37B;
   background: linear-gradient(to bottom,  #49A37B,  #add6c4);
 }
@@ -163,11 +164,10 @@ h4 {
   width: 100%;
 }
 .functionalities-buttons button{
-  position: relative;
   display: inline-block;
   width: 180px;
   height: 180px;
-  margin: 20px;
+  margin-left: 5%;
   background-color:#49A37B;
   background: linear-gradient(to bottom,  #49A37B,  #add6c4);
   border: none;
@@ -177,7 +177,7 @@ h4 {
   text-transform: uppercase;
 }
 .functionalities-buttons button:first-child{
-  margin-left: 500px;
+  margin-left: 20%;
 }
 .green-background {
   position: relative;
