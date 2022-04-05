@@ -39,6 +39,7 @@ h3 {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
   padding-top: 30px;
   padding-bottom: 30px;
   font-weight: 500;
@@ -56,7 +57,6 @@ form {
 }
 h4 {
   position: relative;
-  width: 100px;
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -65,11 +65,14 @@ h4 {
   text-transform: uppercase;
   text-align: center;
 }
-#functionalities, #why-us, #contact-us, #who-we-are, #site-map {
+/*#functionalities, #why-us, #contact-us, #who-we-are, #site-map {
   position: relative;
   display: block;
   height: 450px;
   width: 100%
+}*/
+#site-map {
+  position: relative
 }
 .main-logo {
   position: relative;
@@ -184,7 +187,7 @@ h4 {
   margin-right: auto;
   background-color: #AACE9B;
 }
-.green-background p{
+.green-background-paragraph{
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
@@ -253,34 +256,38 @@ h4 {
 }
 .who-we-are-paragraph {
   width: 100%;
-  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  text-align: center;
+  line-height: 30px;
 }
 .products {
-  position: absolute;
   display: inline-block;
   text-align: center;
   margin-left: 10%;
   list-style-position: inside;
   padding: 50px;
-  background: linear-gradient(180deg, #AACE9B 0%, rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
+  background: linear-gradient(180deg, #AACE9B 0%, 
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
 }
 .company {
-  position: relative;
   display: inline-block;
   text-align: center;
-  margin-left: 30%;
+  margin-left: 10%;
   list-style-position: inside;
   padding: 50px;
-  background: linear-gradient(180deg, #AACE9B 0%, rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
+  background: linear-gradient(180deg, #AACE9B 0%, 
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
 }
 .support {
-  position: relative;
   display: inline-block;
   text-align: center;
-  margin-left: 50%;
+  margin-left: 10%;
   list-style-position: inside;
   padding: 50px;
-  background: linear-gradient(180deg, #AACE9B 0%, rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
+  background: linear-gradient(180deg, #AACE9B 0%, 
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
 }
 #site-map div li {
   list-style-type: numbers;
@@ -289,8 +296,10 @@ h4 {
   text-align: center;
   font-size: 24px;
 }
-.social-media, .city, .copyright {
+.main-footer {
   display: block;
+  padding-top: 30px;
+  text-align:center;
 }
 .social-media img{
  width: 45px;
