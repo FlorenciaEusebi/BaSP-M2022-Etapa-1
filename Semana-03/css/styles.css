@@ -1,3 +1,6 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
 body {
  margin: 0%;
  font-family: 'Roboto', sans-serif;
@@ -19,10 +22,12 @@ aside {
 h1 {
   position: relative;
   display: inline-block;
-  top: 20px;
-  left: 50%;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
   font-weight: 500;
   font-size: 28px;
+  text-align: center;
   text-transform: uppercase;
 }
 p {
@@ -91,9 +96,9 @@ h4 {
   color: #FFFFFF;
   text-decoration: none;
 }
-.wrapper{
+/*.wrapper{
   width: 100%;
-  height: 400px;
+  height: 400px;*/
 }
 .sidebar ul {
   list-style-type: none;
@@ -218,16 +223,17 @@ h4 {
   height: 50px;
   background-color: #AACE9B;
 }
-.form-body input[type=text] {
+/*.form-body input[type=text] {
   width: 99%;
   height: 50px;
   background-color: #AACE9B;
   font-size: 16px;
-}
+}*/
 .form-body input[type=radio] {
   display: inline-block;
   width: 10%;
   height: 15px;
+  outline: none;
 }
 .form-body textarea {
   width: 99%;
@@ -237,6 +243,7 @@ h4 {
   height: 50px;
   background-color:#AACE9B;
   font-size: 16px;
+  outline: none;
 }
 .form-button {
   width: 100%;
@@ -250,9 +257,16 @@ h4 {
 }
 .map, .company, .support {
   display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
   width: 236px;
-  height: 309px;
-  /*margin-left: 50px;
-  margin-right: auto;*/
+  height: 300px;
   background-color: #add6c4;
+}
+#site-map div li {
+  list-style-type: numbers;
+  text-transform: uppercase;
+  line-height: 50px;
+  text-align: center;
+  font-size: 24px;
 }
