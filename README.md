@@ -16,6 +16,8 @@ https://www.figma.com/file/EWmgGFteDl7CrCQ3Lulev6/BaSP-2022-Trackgenix-Bestia?no
 Structuring of Landing page in HTML
 ## Week 3
 Addition of styles with CSS
+## Week 4
+Use of flexbox and media queries to design a responsive, mobile first web.
 ## About the author
 Name: Florencia
 Surname: Eusebi
