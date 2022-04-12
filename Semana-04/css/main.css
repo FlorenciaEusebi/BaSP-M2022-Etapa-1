@@ -140,7 +140,13 @@ h4 {
   width: 5%;
   margin: auto;
   height: 15px;
-
+}
+.who-we-are-paragraph {
+  width: 90%;
+  padding: 10px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
 }
 .form-body textarea {
   width: 99%;
@@ -156,6 +162,43 @@ h4 {
   border: none;
   font-size: 16px;
   text-transform: uppercase;
+}
+.site-map-container {
+  display: flex;
+  flex-direction: column;
+}
+.products {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  list-style-position: inside;
+  padding: 50px;
+  background: linear-gradient(180deg, #AACE9B 0%, 
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
+}
+.company {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  list-style-position: inside;
+  padding: 50px;
+  background: linear-gradient(180deg, #AACE9B 0%, 
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
+}
+.support {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  list-style-position: inside;
+  padding: 50px;
+  background: linear-gradient(180deg, #AACE9B 0%, 
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
+}
+#site-map div li {
+  list-style-type: numbers;
+  text-transform: uppercase;
+  line-height: 50px;
+  font-size: 16px;
 }
 @media screen and (min-width: 768px) {
   h3 {
@@ -189,6 +232,20 @@ h4 {
   .form-title {
     font-size: 18px;
   }
+  .who-we-are-paragraph {
+    font-size: 18px;
+  }
+  .site-map-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .products, .company, .support {
+    width: 25%;
+    margin: 10px;
+  }
+  #site-map div li {
+    font-size: 18px;
+  }
 }
 @media screen and (min-width: 1024px) {
   h3 {
@@ -214,6 +271,27 @@ h4 {
     font-size: 22px;
   }
    .form-title {
+    font-size: 25px;
+  }
+  .form-body input[type=text] {
+    width: 98%;
+    height: 50px;
+    background-color: #AACE9B;
+    font-size: 20px;
+  }
+  .contact-area {
+    font-size: 20px;
+  }
+  .form-body textarea {
+   font-size: 20px;
+  }
+  .form-button {
+    font-size: 20px;
+  }
+  .who-we-are-paragraph {
+    font-size: 20px;
+  }
+  #site-map div li {
     font-size: 20px;
   }
 }
