@@ -1,14 +1,9 @@
 header {
   display: flex;
-  justify-content: center;
   align-items: center;
   padding: 10px;
   background-color:#49A37B;
   background: linear-gradient(to bottom,  #49A37B,  #add6c4);
-}
-.menu-spring {
-  justify-content: center;
-  align-items: center;
 }
 .menu-lines {
   width: 35px;
@@ -24,27 +19,15 @@ header {
 .section-links {
   display: none;
 }
-
 @media screen and (min-width: 480px) {
-  header {
-    display: flex;
-    justify-content: space-between;
-  }
-  .menu-spring {
-    align-self: left;
-  }
   .main-logo {
-    align-self: center;
     width: 60%;
     height: auto;
   }
 }
 @media screen and (min-width: 768px) {
-  header {
-    display: flex;
-  }
   .menu-spring {
-    align-self: left;
+    align-self: flex-start;
   }
   .main-logo {
     align-self: center;
@@ -54,7 +37,7 @@ header {
 }
 @media screen and (min-width: 1024px) {
   header {
-    display: flex;
+    justify-content: space-between;
   }
   .menu-spring{
     display: none;

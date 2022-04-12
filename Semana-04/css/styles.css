@@ -12,10 +12,5 @@ body {
   
 }
 @media screen and (min-width: 1024px) {
-  .main-logo {
-    position: relative;
-    display: inline;
-    width: 15%;
-    height: auto;
-  }
+  
 }
