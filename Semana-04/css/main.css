@@ -21,11 +21,8 @@ h3 {
   text-align: center;
 }
 form {
-  /* max-width: 500px;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto; */
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 h4 {
@@ -72,7 +69,7 @@ h4 {
 }
 .column {
   display: flex;
-  /* flex-direction: column;*/
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
@@ -86,12 +83,92 @@ h4 {
   color:#FFF;
   text-transform: uppercase;
 }
+.green-background {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  background-color: #AACE9B;
+}
+.green-background-paragraph {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.reasons-unordered {
+  padding-top: 10px;
+  padding-left: 30px;
+  color: #000;
+  font-size: 16px;
+  line-height: 28px;
+  list-style-type: circle;
+  list-style-position: inside;
+}
+.form-title {
+  padding: 20px;
+  background-color: #FFF;
+  border: 2px solid black;
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  color: #373867;
+}
+.form-body {
+  background-color: #AACE9B;
+}
+.form-body input[type=text] {
+  width: 98%;
+  height: 50px;
+  background-color: #AACE9B;
+  font-size: 16px;
+}
+.contact-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 98%;
+  height: 50px;
+  padding-left: 5px;
+  background-color: #AACE9B;
+  font-size: 15px;
+  line-height: 30px;
+}
+.contact-area .label-title {
+  width: 100%;
+}
+.form-body input[type=radio] {
+  width: 5%;
+  margin: auto;
+  height: 15px;
+
+}
+.form-body textarea {
+  width: 99%;
+  height: 100px;
+  margin-top: 20px;
+  background-color:#AACE9B;
+  border-bottom: 1px solid black;
+  font-size: 15px;
+}
+.form-button {
+  width: 100%;
+  background-color:#AACE9B;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+}
 @media screen and (min-width: 768px) {
   h3 {
     font-size: 22px;
   }
   .wrapper{
     flex-direction: column;
+  }
+  .column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   .functionalities-buttons button {
     width: 40%;
@@ -102,6 +179,15 @@ h4 {
   .functionalities-buttons .column {
     display: flex;
     justify-content: space-around;
+  }
+  .green-background-paragraph {
+    font-size: 20px;
+  }
+  .reasons-unordered {
+    font-size: 20px;
+  }
+  .form-title {
+    font-size: 18px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -116,5 +202,18 @@ h4 {
     width: 200px;
     height: 200px;
     font-size: 22px;
+  }
+  .green-background {
+    width: 60%;
+    margin: auto;
+  }
+  .green-background-paragraph {
+    font-size: 24px;
+  }
+  .reasons-unordered {
+    font-size: 22px;
+  }
+   .form-title {
+    font-size: 20px;
   }
 }
