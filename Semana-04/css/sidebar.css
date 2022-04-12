@@ -1,0 +1,10 @@
+aside {
+  display: none;
+  position: absolute;
+  width: 198px;
+  height: 245px;
+  left: 0px;
+  margin-right: 100px;
+  background-color:#49A37B;
+  background: linear-gradient(to bottom,  #49A37B,  #add6c4);
+}

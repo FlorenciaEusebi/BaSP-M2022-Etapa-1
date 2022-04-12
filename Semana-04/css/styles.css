@@ -1,0 +1,21 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  margin: 0%;
+  font-family: 'Roboto', sans-serif;
+}
+@media screen and (min-width: 480px) {
+  
+}
+@media screen and (min-width: 768px) {
+  
+}
+@media screen and (min-width: 1024px) {
+  .main-logo {
+    position: relative;
+    display: inline;
+    width: 15%;
+    height: auto;
+  }
+}
