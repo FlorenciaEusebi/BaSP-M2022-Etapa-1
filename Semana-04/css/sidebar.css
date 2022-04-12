@@ -2,26 +2,23 @@ aside {
   display: none;
 }
 @media screen and (min-width: 480px) {
-  
 }
 @media screen and (min-width: 768px) {
-  aside {
+    aside {
     display: flex;
     position: fixed;
     flex-direction: column;
-    width: 25%;
-    height: 100%;
+    justify-content: space-evenly;
+    width: 20%;
+    height: 85%;
     background-color:#49A37B;
     background: linear-gradient(to bottom,  #49A37B,  #add6c4);
   }
   aside li {
-    align-items: center;
-    justify-content: space-around;
     text-align: center;
     list-style-type: none;
   }
   aside a {
-    justify-content: space-around;
     color: #000;
     font-size: 24px;
     font-weight: 500;
@@ -30,15 +27,16 @@ aside {
   aside li:first-child {
     text-transform: uppercase;
   }
+  .wrapper {
+    display: flex;
+  }
 }
 @media screen and (min-width: 1024px) {
   aside {
-    display: none;
-    position: absolute;
-    width: 198px;
-    height: 245px;
-    left: 0px;
-    margin-right: 100px;
+    display: flex;
+    position: initial;
+    width: 20%;
+    height: 50%;
     background-color:#49A37B;
     background: linear-gradient(to bottom,  #49A37B,  #add6c4);
   }
