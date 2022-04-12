@@ -1,10 +1,13 @@
 aside {
   display: none;
 }
+.wrapper {
+  display: flex;
+}
 @media screen and (min-width: 480px) {
 }
 @media screen and (min-width: 768px) {
-    aside {
+  aside {
     display: flex;
     position: fixed;
     flex-direction: column;
@@ -27,21 +30,19 @@ aside {
   aside li:first-child {
     text-transform: uppercase;
   }
-  .wrapper {
-    display: flex;
-  }
+  h1 {
+    align-self: center;
+    }
 }
 @media screen and (min-width: 1024px) {
   aside {
-    display: flex;
-    position: initial;
+    position: relative;
+    align-self: flex-start;
     width: 20%;
     height: 50%;
-    background-color:#49A37B;
-    background: linear-gradient(to bottom,  #49A37B,  #add6c4);
   }
   aside ul {
-  list-style-type: none;
+    list-style-type: none;
   }
   aside li {
     display: block;

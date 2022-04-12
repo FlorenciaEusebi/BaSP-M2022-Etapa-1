@@ -1,8 +1,120 @@
-@media screen and (min-width: 480px) {
-  
+h1 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-weight: 500;
+  font-size: 28px;
+  text-align: center;
+  text-transform: uppercase;
+}
+p {
+  font-weight: 300;
+  font-size: 24px;
+  text-align: center;
+}
+h3 {
+  margin:auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+}
+form {
+  /* max-width: 500px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto; */
+  border: 1px solid black;
+  align-items: center;
+}
+h4 {
+  /* margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto; */
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.wrapper {
+  display: flex;
+  /* justify-content: space-between; */
+}
+.job-description {
+  display: flex;
+  flex-direction: column;
+  background-color: #AACE9B;
+  text-align: center;
+}
+.main-subtitle {
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+}
+.job-description p{
+  width: auto;
+  margin: auto;
+  font-size: 16px;
+}
+.secondary-logo {
+  width: 10%;
+  height: 10%;
+}
+.functionalities-buttons {
+  display: flex;
+  flex-direction: column;
+}
+.column {
+  display: flex;
+  /* flex-direction: column;*/
+  justify-content: space-between;
+  align-items: center;
+}
+.functionalities-buttons button{
+  width: 50%;
+  margin: 10px;
+  background-color:#49A37B;
+  background: linear-gradient(to bottom,  #49A37B,  #add6c4);
+  border: none;
+  font-size: 16px;
+  color:#FFF;
+  text-transform: uppercase;
 }
 @media screen and (min-width: 768px) {
+  h3 {
+    font-size: 22px;
+  }
+  .wrapper{
+    flex-direction: column;
+  }
+  .functionalities-buttons button {
+    width: 40%;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .functionalities-buttons .column {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 @media screen and (min-width: 1024px) {
-  
+  h3 {
+    font-size: 24px;
+  }
+  .functionalities-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .functionalities-buttons button {
+    width: 200px;
+    height: 200px;
+    font-size: 22px;
+  }
 }
