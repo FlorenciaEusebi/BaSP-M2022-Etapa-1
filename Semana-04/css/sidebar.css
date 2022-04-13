@@ -8,11 +8,11 @@ aside {
     width: 150px;
     height: 100%;
     top: 120px;
-    background-color:#49A37B;
     background: linear-gradient(to bottom,  #49A37B,  #add6c4);
   }
   aside li {
     text-align: center;
+    line-height: 5;
     list-style-type: none;
   }
   aside a {
@@ -30,10 +30,11 @@ aside {
 }
 @media screen and (min-width: 1024px) {
   aside {
-    position: relative;
-    align-self: flex-start;
+    position:absolute;
+    top: 100px;
     width: 20%;
-    height: 50%;
+    height: 350px;
+    opacity: 1;
   }
   aside ul {
     list-style-type: none;
