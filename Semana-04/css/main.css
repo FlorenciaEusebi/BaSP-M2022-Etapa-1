@@ -26,17 +26,10 @@ form {
   align-items: center;
 }
 h4 {
-  /* margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto; */
   font-weight: bold;
   font-size: 24px;
   text-transform: uppercase;
   text-align: center;
-}
-.wrapper {
-  display: flex;
-  /* justify-content: space-between; */
 }
 .job-description {
   display: flex;
@@ -75,8 +68,8 @@ h4 {
 }
 .functionalities-buttons button{
   width: 50%;
+  height: 50px;
   margin: 10px;
-  background-color:#49A37B;
   background: linear-gradient(to bottom,  #49A37B,  #add6c4);
   border: none;
   font-size: 16px;
@@ -138,8 +131,8 @@ h4 {
 }
 .form-body input[type=radio] {
   width: 5%;
-  margin: auto;
   height: 15px;
+  margin: auto;
 }
 .who-we-are-paragraph {
   width: 90%;
@@ -170,29 +163,29 @@ h4 {
 .products {
   width: 50%;
   margin: auto;
+  padding: 50px;
+  background: linear-gradient(180deg, #AACE9B 0%,
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
   text-align: center;
   list-style-position: inside;
-  padding: 50px;
-  background: linear-gradient(180deg, #AACE9B 0%, 
-  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
 }
 .company {
   width: 50%;
   margin: auto;
+  padding: 50px;
+  background: linear-gradient(180deg, #AACE9B 0%,
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
   text-align: center;
   list-style-position: inside;
-  padding: 50px;
-  background: linear-gradient(180deg, #AACE9B 0%, 
-  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
 }
 .support {
   width: 50%;
   margin: auto;
+  padding: 50px;
+  background: linear-gradient(180deg, #AACE9B 0%,
+  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
   text-align: center;
   list-style-position: inside;
-  padding: 50px;
-  background: linear-gradient(180deg, #AACE9B 0%, 
-  rgba(170, 206, 155, 0.541667) 45.83%, rgba(170, 206, 155, 0.708333) 95.31%, rgba(170, 206, 155, 0) 100%);
 }
 #site-map div li {
   list-style-type: numbers;
@@ -205,7 +198,8 @@ h4 {
     font-size: 22px;
   }
   .wrapper{
-    flex-direction: column;
+    position: relative;
+    top: 120px;
   }
   .column {
     display: flex;
@@ -270,7 +264,7 @@ h4 {
   .reasons-unordered {
     font-size: 22px;
   }
-   .form-title {
+  .form-title {
     font-size: 25px;
   }
   .form-body input[type=text] {
@@ -283,7 +277,7 @@ h4 {
     font-size: 20px;
   }
   .form-body textarea {
-   font-size: 20px;
+    font-size: 20px;
   }
   .form-button {
     font-size: 20px;
