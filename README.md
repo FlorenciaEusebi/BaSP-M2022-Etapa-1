@@ -18,7 +18,9 @@ Structuring of Landing page in HTML
 Addition of styles with CSS
 ## Week 4
 Use of flexbox and media queries to design a responsive, mobile first web.
-Github Page: https://florenciaeusebi.github.io/BaSP-M2022-Etapa-1/
+Github Page: https://florenciaeusebi.github.io/BaSP-M2022-Etapa-1/Semana-04/
+## Week 5
+Solution of JavaScript exercises.
 ## About the author
 Name: Florencia
 Surname: Eusebi
