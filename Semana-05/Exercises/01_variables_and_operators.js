@@ -23,5 +23,5 @@ console.log('-Exercise 1.c:');
 var iceCreamFlavour1, iceCreamFlavour2;
 iceCreamFlavour1 = 'strawberry';
 iceCreamFlavour2 = 'chocolate';
-var totalLength = iceCreamFlavour1.length+iceCreamFlavour2.length;
+var totalLength = iceCreamFlavour1.length + iceCreamFlavour2.length;
 console.log(totalLength);

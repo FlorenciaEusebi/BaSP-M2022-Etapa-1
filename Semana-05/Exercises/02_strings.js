@@ -9,14 +9,14 @@ console.log(tenLettersString.toUpperCase());
 /* b. Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string con los primeros
  5 caracteres guardando el resultado en una nueva variable (utilizar substring).*/
 console.log('-Exercise 2.b:');
-var tenLettersSubstring = 'PeninsuladeValdes';
+var tenLettersSubstring = 'peninsuladevaldes';
 var result = tenLettersSubstring.substring(0,5);
 console.log(result);
 
 /* c. Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string con los últimos
  3 caracteres guardando el resultado en una nueva variable (utilizar substring).*/
 console.log('-Exercise 2.c:');
-var nationalParks = 'LosGlaciares';
+var nationalParks = 'Losglaciares';
 var result = nationalParks.substring(nationalParks.length-3);
 console.log(result);
 
@@ -40,7 +40,7 @@ Utilizar los métodos de los ejercicios anteriores para generar un nuevo string 
 palabras en mayúscula y las demás letras en minúscula (utilizar indexOf, substring, toUpperCase, toLowerCase y el operador +).*/
 console.log('-Exercise 2.f:');
 var longWords = 'argentinian landscapes';
-var result = longWords.substring(0,1).toUpperCase() + longWords.substring (1, longWords.indexOf(' ',0))+' ';
-result = result+longWords.substring((longWords.indexOf(' ',0)+1),(longWords.indexOf(' ',0)+2)).toUpperCase();
-result = result+longWords.substring((longWords.indexOf(' ',0)+2));
+var result = longWords.substring(0,1).toUpperCase() + longWords.substring (1, longWords.indexOf(' ',0)) + ' ';
+result = result + longWords.substring((longWords.indexOf(' ',0) + 1), (longWords.indexOf(' ',0) + 2)).toUpperCase();
+result = result + longWords.substring((longWords.indexOf(' ',0) + 2));
 console.log(result);
