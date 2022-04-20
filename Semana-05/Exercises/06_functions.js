@@ -67,7 +67,7 @@ function sum(number1, number2){
     alert('One parameter contains an error');
         return NaN;
           } else {
-              return myround(number1) + myround(number2);
+              return otherValidation(number1) + otherValidation(number2);
               }
 }
 console.log(sum(4,2.3));
