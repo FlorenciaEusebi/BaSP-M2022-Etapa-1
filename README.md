@@ -21,6 +21,8 @@ Use of flexbox and media queries to design a responsive, mobile first web.
 Github Page: https://florenciaeusebi.github.io/BaSP-M2022-Etapa-1/Semana-04/
 ## Week 5
 Solution of JavaScript exercises.
+## Week 6
+Use of JavaScript in Trackgenix's landing, sign-up and login pages.
 ## About the author
 Name: Florencia
 Surname: Eusebi
