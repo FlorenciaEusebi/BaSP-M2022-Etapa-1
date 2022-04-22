@@ -1,0 +1,22 @@
+.social-media img {
+  width: 45px;
+  height: 45px;
+}
+.main-footer {
+  display: block;
+  padding-top: 30px;
+  text-align:center;
+}
+.city p, .copyright p {
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .city p, .copyright p {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .city p, .copyright p {
+    font-size: 20px;
+  }
+}
