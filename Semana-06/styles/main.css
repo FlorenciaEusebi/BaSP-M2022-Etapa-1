@@ -150,7 +150,8 @@ h4 {
   font-size: 15px;
 }
 .form-button {
-  width: 100%;
+  width: 90%;
+  margin: 10px;
   background-color:#AACE9B;
   border: none;
   font-size: 16px;

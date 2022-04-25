@@ -1,0 +1,19 @@
+.login-form {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: #AACE9B;
+}
+.login-form input[type=text], .login-form input[type=password] {
+  width: 100%;
+  margin: 20px;
+  font-size: 16px;
+}
+.login-button button {
+  width: 100%;
+  margin: 10px;
+  background-color:#AACE9B;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+}
