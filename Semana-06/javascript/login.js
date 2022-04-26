@@ -1,8 +1,8 @@
   var emailInput = document.getElementById('email');
   var passwordInput = document.getElementById('password');
   var logIn = document.getElementById('login-button');
-  var emailOk = false;
-  var passwordOk = false;
+  var emailOkLogin = false;
+  var passwordOkLogin = false;
 
   emailInput.addEventListener('blur', eBlur);
   emailInput.addEventListener('focus', eFocus);
@@ -15,7 +15,7 @@
     var validate = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value);
       if (validate) {
         email.style.color = 'green';
-        emailOk = true;
+        emailOkLogin = true;
         errorSpace.innerText = "";
           } else {
                 var loginInput = document.getElementsByClassName("login-email-password");
@@ -52,7 +52,7 @@
       };
     }
     if (countLetters + countNumbers == pswOk.length) {
-      passwordOk = true;
+      passwordOkLogin = true;
       pswError = document.getElementById('password-error');
       password.style.color = 'green';
       pswError.innerText = "";
@@ -77,11 +77,11 @@
   };
 
   function submitUser() {
-    if (emailOk && passwordOk) {
+    if (emailOkLogin && passwordOkLogin) {
       alert('Login completed successfully - User Email: ' + emailInput.value + 'User Password: ' + passwordInput.value);
-    } else if (!emailOk) {
+    } else if (!emailOkLogin) {
       alert(email.value + 'Email is invalid');
-    } else if (!passwordOk) {
+    } else if (!passwordOkLogin) {
       alert(password.value + 'Password is invalid');
     }
   };

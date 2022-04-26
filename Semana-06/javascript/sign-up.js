@@ -6,6 +6,11 @@ var phoneData = document.getElementById("phone-number");
 var addressData = document.getElementById("address");
 var cityData = document.getElementById("city");
 var zipCodeData = document.getElementById("zipCode");
+var emailData = document.getElementById("email");
+var passwordData = document.getElementById("password");
+var repeatData = document.getElementById("repeatPassword");
+
+
 
 nameData.addEventListener("blur", nameBlur);
 nameData.addEventListener("focus", nameFocus);
@@ -19,9 +24,18 @@ phoneData.addEventListener("blur", phoneBlur);
 phoneData.addEventListener("focus", phoneFocus);
 addressData.addEventListener("blur", addressBlur);
 addressData.addEventListener("focus", addressFocus);
-cityData.addEventListener('blur', cityBlur);
-cityData.addEventListener('focus', cityFocus);
-zipCodeData.addEventListener('blur', zipCodeBlur)
+cityData.addEventListener("blur", cityBlur);
+cityData.addEventListener("focus", cityFocus);
+zipCodeData.addEventListener("blur", zipCodeBlur);
+zipCodeData.addEventListener("focus", zipCodeFocus);
+emailData.addEventListener("blur", emailBlur);
+emailData.addEventListener("focus", emailFocus);
+passwordData.addEventListener("blur", passwordBlur);
+passwordData.addEventListener("focus", passwordFocus);
+repeatData.addEventListener("blur", repeatBlur);
+repeatData.addEventListener("focus", repeatFocus);
+
+
 
 var nameOk;
 function nameBlur() {
@@ -64,6 +78,8 @@ function nameFocus() {
   nameInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
+
+
 var surnameOk;
 function surnameBlur() {
   surnameOk = document.getElementById("surname").value;
@@ -104,6 +120,8 @@ function surnameFocus() {
   var surnameInput = document.getElementsByClassName("sing-up-input");
   surnameInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
+
+
 
 var idOK;
 function idBlur() {
@@ -146,6 +164,8 @@ function idFocus() {
   idInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
+
+
 var bdayOk;
 function bdayBlur() {
   var bdayValue = birthdayData.value;
@@ -176,6 +196,8 @@ function bdayFocus() {
   var bdayInput = document.getElementsByClassName("sing-up-input");
   bdayInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
+
+
 
 var phoneOk;
 function phoneBlur() {
@@ -217,6 +239,8 @@ function phoneFocus() {
   var phoneInput = document.getElementsByClassName("sing-up-input");
   phoneInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
+
+
 
 var addressOk;
 function addressBlur() {
@@ -264,6 +288,8 @@ function addressFocus() {
   addressInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
+
+
 var cityOk;
   function cityBlur() {
     var dataCity = cityData.value;
@@ -302,9 +328,11 @@ var cityOk;
     cityInput[0].style = "border-bottom: solid #49A37B 0.5px";
   }
 
+
+
   var zipCodeOk;
   function zipCodeBlur() {
-    var zipCodeOk = document.getElementById('zipCode').value;
+    var zipCodeOk = document.getElementById("zipCode").value;
   console.log(zipCodeOk);
   if (zipCodeOk.length > 3 && zipCodeOk.length < 5) {
     var numberOfCharacters = 0;
@@ -342,3 +370,112 @@ function zipCodeFocus() {
   var zipCodeInput = document.getElementsByClassName("sing-up-input");
   zipCodeInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
+
+
+
+var emailOk;
+function emailBlur() {
+  var emailError = document.getElementById("email").value;
+  var validateEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailData.value);
+    if (validateEmail) {
+      email.style.color = "green";
+      emailOk = true;
+      emailError.innerText = "";
+        } else {
+              var emailInput = document.getElementsByClassName("sing-up-input");
+              emailInput[0].style = "border-bottom: solid 2px red";
+              var emailErrorSignUp = 'Please enter a valid Email';
+              emailError.innerText = emailErrorSignUp;
+              emailError.style = "color: red; font-size: 16px";
+            // validateEmail = false;
+        };
+};
+
+function emailFocus() {
+  emailData.style = "border-color:none";
+  var emailInput = document.getElementsByClassName("sing-up-input");
+  emailInput[0].style =  "border-bottom: solid #49A37B 0.5px";
+};
+
+
+
+var passwordOk;
+  function passwordBlur() {
+   passwordOk = document.getElementById("password").value;
+    if (passwordOk.length > 7) {
+      var countPswLetters = 0;
+      var countPswNumbers = 0;
+      for (let i = 0; i < passwordOk.length; i++) {
+        var passwordLetter = passwordOK.substring( i, i + 1);
+        var passwordLetterCode = passwordLetter.charCodeAt();
+        if (passwordLetter == Number(passwordLetter)){
+          countPswNumbers += 1;
+      }
+        if (!((passwordLetterCode < 65) || (passwordLetterCode > 90 && passwordLetterCode < 97) ||
+        (passwordLetterCode > 122) && (passwordLetterCode != 209 && passwordLetterCode != 241))) {
+          countPswLetters += 1;
+      };
+    }
+    if (countPswLetters + countPswNumbers == passwordOk.length) {
+      passwordOk = true;
+      passwordError = document.getElementById("password-error-box");
+      password.style.color = 'green';
+      passwordError.innerText = "";
+    } else {
+      var passwordError = document.getElementById("password-error-box");
+      passwordError.innerText = 'The password should not contain special characters';
+      passwordError.style = "color: red; font-size: 16px";
+    }
+   } else {
+      passwordError = document.getElementById("password-error-box");
+      passwordError.innerText = 'The password should contain more than 7 characters';
+      passwordError.style = "color: red; font-size: 16px";
+   }
+  };
+
+  function passwordFocus() {
+    passwordData.style = "border-color:none";
+    var passwordInput = document.getElementsByClassName("sing-up-input");
+    passwordInput[0].style =  "border-bottom: solid #49A37B 0.5px";
+  };
+
+
+  var repeatOk;
+   function repeatBlur() {
+   repeatOk = document.getElementById("repeatPassword").value;
+    if (repeatOk.length > 7) {
+      var countRepeatLetters = 0;
+      var countRepeatNumbers = 0;
+      for (let i = 0; i < repeatOk.length; i++) {
+        var repeatLetter = repeatOk.substring( i, i + 1);
+        var repeatLetterCode = repeatLetter.charCodeAt();
+        if (repeatLetter == Number(repeatLetter)){
+          countRepeatNumbers += 1;
+      }
+        if (!((repeatLetterCode < 65) || (repeatLetterCode > 90 && repeatLetterCode < 97) ||
+        (repeatLetterCode > 122) && (repeatLetterCode != 209 && repeatLetterCode != 241))) {
+          countRepeatLetters += 1;
+      };
+    }
+    if (countRepeatLetters + countRepeatNumbers == repeatOk.length) {
+      repeatOk = true;
+      repeatError = document.getElementById("repeat-psw-error-box");
+      repeatPassword.style.color = "green";
+      repeatError.innerText = "";
+    } else {
+      var repeatError = document.getElementById("repeat-psw-error-box");
+      repeatError.innerText = 'The password should not contain special characters';
+      repeatError.style = "color: red; font-size: 16px";
+    }
+   } else {
+      repeatError = document.getElementById("repeat-psw-error-box");
+      repeatError.innerText = 'The password should contain more than 7 characters';
+      repeatError.style = "color: red; font-size: 16px";
+   }
+  };
+
+  function repeatFocus() {
+    repeatData.style = "border-color:none";
+    var repeatInput = document.getElementsByClassName("sing-up-input");
+    repeatInput[0].style =  "border-bottom: solid #49A37B 0.5px";
+  };
