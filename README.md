@@ -23,6 +23,7 @@ Github Page: https://florenciaeusebi.github.io/BaSP-M2022-Etapa-1/Semana-04/
 Solution of JavaScript exercises.
 ## Week 6
 Use of JavaScript in Trackgenix's landing, sign-up and login pages.
+https://github.com/FlorenciaEusebi/BaSP-M2022-Etapa-1/tree/master/Semana-06
 ## About the author
 Name: Florencia
 Surname: Eusebi
