@@ -631,8 +631,10 @@ btn.onclick = function(e) {
       && addressValid && cityValid && zipCodeValid && emailValid && passwordValid
       && repeatValid) {
       text.innerHTML = `<p> User successfully created </p>`;
+      alert('User created');
     } else {
       text.innerHTML = `<p> Please complete all the fields </p>`;
+      alert('User not created');
     }
 }
 
