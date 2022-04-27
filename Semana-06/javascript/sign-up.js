@@ -62,7 +62,7 @@ function nameBlur() {
       } else {
         nameOk = true;
         nameError = document.getElementById("name-error-box");
-        nameData.style.border = "green";
+        nameData.style.color = "green";
         nameError.innerText = "";
       }
     } else {
@@ -107,7 +107,7 @@ function surnameBlur() {
     } else {
       surnameOk = true;
       surnameError = document.getElementById("surname-error-box");
-      surname.style.border = "green";
+      surname.style.color = "green";
       surnameError.innerText = "";
     }
   } else {
@@ -146,7 +146,7 @@ function idBlur() {
     } else {
       idOk = true;
       idError = document.getElementById("id-error-box");
-      idData.style.border = "green";
+      idData.style.color = "green";
       idError.innerText = "";
     }
   } else {
@@ -191,7 +191,7 @@ function bdayBlur() {
     slashError.style = "color: red; font-size: 16px";
   } else {
     birthdayError = document.getElementById("birth-error-box");
-    birthdayData.style.border = "green";
+    birthdayData.style.color = "green";
     birthdayError.innerText = "";;
     bdayOk = true;
   }
@@ -232,7 +232,7 @@ function phoneBlur() {
     } else {
       phoneOk = true;
       phoneError = document.getElementById("phone-error-box");
-      phoneData.style = "green";
+      phoneData.style.color = "green";
       phoneError.innerText = "";
     }
   } else {
@@ -256,10 +256,12 @@ function addressBlur() {
     addressError.innerText = "Address cannot be empty";
     addressError.style = "color: red; font-size: 16px";
   } else if (addressOk.length < 5) {
-    console.log("error pintar rojo length");
+    addressOk = true;
   } else {
     if (addressOk.indexOf(" ") === -1) {
-      console.log("no hay espacios");
+      var addressError = document.getElementById("address-error-box");
+      addressError.innerText = "Address should contain a space";
+      addressError.style = "color: red; font-size: 16px";
     } else {
       var letterCount = 0;
       var spaceCount = 0;
@@ -282,11 +284,18 @@ function addressBlur() {
         }
       }
       if (letterCount == 0 || numberCount == 0) {
-        console.log("insert numbers and letters");
+        var addressError = document.getElementById("address-error-box");
+        addressError.innerText = "Address should contain a space";
+        addressError.style = "color: red; font-size: 16px";
       } else if (letterCount + spaceCount + numberCount == addressOk.length) {
-        console.log("everything is ok");
+          addressOk = true;
+          addressError = document.getElementById("address-error-box");
+          addressData.style.color = "green";
+          addressError.innerText = "";
       } else {
-        console.log("INGRESO CARACTERES ESPECIALES EN ROJO");
+        var addressError = document.getElementById("address-error-box");
+        addressError.innerText = "Insert special characters";
+        addressError.style = "color: red; font-size: 16px";
       }
     }
   }
@@ -300,14 +309,20 @@ function addressFocus() {
 
 var cityOk;
 function cityBlur() {
-  var dataCity = cityData.value;
-  if (dataCity.length < 4) {
-    console.log("error pintar rojo length");
+  cityOk = document.getElementById("city").value;
+  if (cityOk == "") {
+    var cityError = document.getElementById("city-error-box");
+    cityError.innerText = "City cannot be empty";
+    cityError.style = "color: red; font-size: 16px";
+  } else if (cityOk.length < 4) {
+      var cityError = document.getElementById("city-error-box");
+      cityError.innerText = "City should contain more than 3 characters";
+      cityError.style = "color: red; font-size: 16px";
   } else {
     var nOfLetters = 0;
     var nOfNumbers = 0;
-    for (var i = 0; i < dataCity.length; i++) {
-      var cityLetter = dataCity.substring(i, i + 1);
+    for (var i = 0; i < cityOk.length; i++) {
+      var cityLetter = cityOk.substring(i, i + 1);
       var codeLettersCity = cityLetter.charCodeAt();
       if (cityLetter == Number(cityLetter)) {
         nOfNumbers += 1;
@@ -324,11 +339,18 @@ function cityBlur() {
       }
     }
     if (nOfLetters == 0 || nOfNumbers == 0) {
-      console.log("insert numbers and letters");
-    } else if (nOfLetters + nOfNumbers == dataCity.length) {
-      console.log("everything is ok");
+      var cityError = document.getElementById("city-error-box");
+      cityError.innerText = "City should contain numbers and letters";
+      cityError.style = "color: red; font-size: 16px";
+    } else if (nOfLetters + nOfNumbers == cityOk.length) {
+      cityOk = true;
+      cityError = document.getElementById("city-error-box");
+      cityData.style.color = "green";
+      cityError.innerText = "";
     } else {
-      console.log("INGRESO CARACTERES ESPECIALES EN ROJO");
+      var cityError = document.getElementById("city-error-box");
+      cityError.innerText = "City should not contain special characters";
+      cityError.style = "color: red; font-size: 16px";
     }
   }
 }
@@ -341,10 +363,12 @@ function cityFocus() {
 var zipCodeOk;
 function zipCodeBlur() {
   var zipCodeOk = document.getElementById("zip-code").value;
-  console.log(zipCodeOk);
-  if (zipCodeOk.length > 3 && zipCodeOk.length < 5) {
+  if (zipCodeOk == "") {
+    var zipCodeError = document.getElementById("zip-code-error-box");
+    zipCodeError.innerText = "Zip Code cannot be empty";
+    zipCodeError.style = "color: red; font-size: 16px";
+  } else if (zipCodeOk.length > 3 && zipCodeOk.length < 5) {
     var numberOfCharacters = 0;
-    console.log(zipCodeOk);
     for (var i = 0; i < zipCodeOk.length; i++) {
       var countNCharacters = zipCodeOk.substring(i, i + 1);
       var numberZipCode = countNCharacters.charCodeAt();
@@ -356,18 +380,16 @@ function zipCodeBlur() {
         )
       ) {
         numberOfCharacters += 1;
-        console.log(zipCodeOk);
       }
     }
     if (countNCharacters == zipCodeOk.length) {
       zipCodeOk = true;
       zipCodeError = document.getElementById("zip-code-error-box");
-      zipCodeData.style.border = "green";
+      zipCodeData.style.color = "green";
       zipCodeError.innerText = "";
     } else {
       var zipCodeError = document.getElementById("zip-code-error-box");
-      zipCodeError.innerText =
-        "Zip Code should contain between 4 and 5 characters";
+      zipCodeError.innerText = "Zip Code should contain between 4 and 5 characters";
       zipCodeError.style = "color: red; font-size: 16px";
     }
   } else {
@@ -385,11 +407,13 @@ function zipCodeFocus() {
 
 var emailOk;
 function emailBlur() {
-  var emailError = document.getElementById("email").value;
-  var validateEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-    emailData.value
-  );
-  if (validateEmail) {
+  var emailOk = document.getElementById("email").value;
+  var validateEmail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(emailData.value);
+  if (emailOk == "") {
+    var emailError = document.getElementById("email-error-box");
+    emailError.innerText = "Email cannot be empty";
+    emailError.style = "color: red; font-size: 16px";
+  } else if (validateEmail) {
     email.style.color = "green";
     emailOk = true;
     emailError.innerText = "";
@@ -412,10 +436,14 @@ function emailFocus() {
 var passwordOk;
 function passwordBlur() {
   passwordOk = document.getElementById("password").value;
-  if (passwordOk.length > 7) {
+  if (passwordOk == "") {
+    var passwordError = document.getElementById("password-error-box");
+    passwordError.innerText = "Password cannot be empty";
+    passwordError.style = "color: red; font-size: 16px";
+  } else if  (passwordOk.length > 7) {
     var countPswLetters = 0;
     var countPswNumbers = 0;
-    for (let i = 0; i < passwordOk.length; i++) {
+    for (var i = 0; i < passwordOk.length; i++) {
       var passwordLetter = passwordOK.substring(i, i + 1);
       var passwordLetterCode = passwordLetter.charCodeAt();
       if (passwordLetter == Number(passwordLetter)) {
@@ -440,14 +468,12 @@ function passwordBlur() {
       passwordError.innerText = "";
     } else {
       var passwordError = document.getElementById("password-error-box");
-      passwordError.innerText =
-        "The password should not contain special characters";
+      passwordError.innerText = "Password should not contain special characters";
       passwordError.style = "color: red; font-size: 16px";
     }
   } else {
     passwordError = document.getElementById("password-error-box");
-    passwordError.innerText =
-      "The password should contain more than 7 characters";
+    passwordError.innerText = "Password should contain more than 7 characters";
     passwordError.style = "color: red; font-size: 16px";
   }
 }
@@ -461,7 +487,11 @@ function passwordFocus() {
 var repeatOk;
 function repeatBlur() {
   repeatOk = document.getElementById("repeat-password").value;
-  if (repeatOk.length > 7) {
+  if (repeatOk == "") {
+    var repeatError = document.getElementById("repeat-psw-error-box");
+    repeatError.innerText = "Repeat password cannot be empty";
+    repeatError.style = "color: red; font-size: 16px";
+  } else if  (repeatOk.length > 7) {
     var countRepeatLetters = 0;
     var countRepeatNumbers = 0;
     for (let i = 0; i < repeatOk.length; i++) {
@@ -489,14 +519,12 @@ function repeatBlur() {
       repeatError.innerText = "";
     } else {
       var repeatError = document.getElementById("repeat-psw-error-box");
-      repeatError.innerText =
-        "The password should not contain special characters";
+      repeatError.innerText = "The password should not contain special characters";
       repeatError.style = "color: red; font-size: 16px";
     }
   } else {
     repeatError = document.getElementById("repeat-psw-error-box");
-    repeatError.innerText =
-      "The password should contain more than 7 characters";
+    repeatError.innerText = "The password should contain more than 7 characters";
     repeatError.style = "color: red; font-size: 16px";
   }
 }
