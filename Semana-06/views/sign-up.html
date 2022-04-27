@@ -89,36 +89,22 @@
                 <input id="repeat-password" type="password" placeholder="Repeat Password" class="form-input-box" required>
                 <div id="repeat-psw-error-box"></div>
               </div>
-              <button type="submit" class="create-user-button">Create User</button>
+              <button id="createBtn" type="submit" class="create-user-button">Create User</button>
             </div>
           </div>
         </form>
       </div>
     </div>
-    <footer class="main-footer">
-      <div class="social-media">
-        <a href="#">
-          <img src="../assets/WhatsApp.png" title="WhatsApp" alt="WhatsApp-Logo">
-        </a>
-        <a href="#">
-          <img src="../assets/LinkedIn.png" title="LinkedIn" alt="LinkedIn-Logo">
-        </a>
-        <a href="#">
-          <img src="../assets/Facebook.png" title="Facebook" alt="Facebook-Logo">
-        </a>
-        <a href="#">
-          <img src="../assets/Github.png" title="Github" alt="Github-Logo">
-        </a>
-        <a href="#">
-          <img src="../assets/Twitter.png" title="Twitter" alt="Twitter-Logo">
-        </a>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+          <div class="modal-header">
+              <span class="close">&times;</span>
+              <h2 id="modal-header">Modal Message</h2>
+          </div>
+          <div class="modal-body">
+            <p id="id-error"></p>
+          </div>
       </div>
-      <div class="city">
-        <p>Rosario, Argentina</p>
-      </div>
-      <div class="copyright">
-        <p>Copyright © 2022 Trackgenix S.A. All rights reserved.</p>
-      </div>
-    </footer>
+  </div>
   </body>
 </html>

@@ -1,14 +1,19 @@
   var emailInput = document.getElementById('email');
+  var emailError = document.getElementById('email-error');
   var passwordInput = document.getElementById('password');
+  var passwordError = document.getElementById('password-error');
   var logIn = document.getElementById('login-button');
   var emailOkLogin = false;
   var passwordOkLogin = false;
+  var modalTitle = document.getElementById('modal-header');
+  var emailModalText = document.getElementById('email-modal-text');
+  var passwordModalText = document.getElementById('password-modal-text');
 
   emailInput.addEventListener('blur', eBlur);
   emailInput.addEventListener('focus', eFocus);
   passwordInput.addEventListener('blur', pswBlur);
   passwordInput.addEventListener('focus', pswFocus);
-  logIn.addEventListener('click', submitUser);
+
 
   function eBlur() {
     var errorSpace = document.getElementById("email-error");
@@ -71,17 +76,40 @@
   function pswFocus() {
     passwordInput.style = "border-color:none";
     var pswError = document.getElementById('password-error');
-    // errorSpace.removeChild(errorSpace.firstElementChild);
     var loginInput = document.getElementsByClassName('login-email-password');
     loginInput[0].style =  "border-bottom: solid #49A37B 0.5px";
   };
 
-  function submitUser() {
-    if (emailOkLogin && passwordOkLogin) {
-      alert('Login completed successfully - User Email: ' + emailInput.value + 'User Password: ' + passwordInput.value);
-    } else if (!emailOkLogin) {
-      alert(email.value + 'Email is invalid');
-    } else if (!passwordOkLogin) {
-      alert(password.value + 'Password is invalid');
+  var modal = document.getElementById("myModal");
+  var btn = document.getElementById("myLoginBtn");
+  var span = document.getElementsByClassName("close")[0];
+
+  btn.onclick = function(e) {
+    e.preventDefault();
+    if (emailInput.value.length == 0){
+      outputRequired(emailInput, emailError);
+  } else if (passwordInput.value.length == 0) {
+      outputRequired(passwordInput, passwordError);
+  } else {
+      modal.style.display = "block";
+      if (emailOkLogin == false){
+          modalTitle.textContent = 'Login failed';
+          emailModalText.textContent = 'Email: ' + emailInput.value + ' not valid';
+      } else if (pswOk == false) {
+          modalTitle.textContent = 'Login failed';
+          passwordModalText.textContent = 'Password: ' + passwordInput.value + ' not valid';
+      } else {
+          modalTitle.textContent = 'Logged in';
+          emailModalText.textContent = 'Email: ' + emailInput.value + ' valid';
+          passwordModalText.textContent = 'Password: ' + passwordInput.value + ' valid';
+      }
+  }
+}
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
-  };
+  }
