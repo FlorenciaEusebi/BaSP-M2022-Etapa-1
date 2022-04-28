@@ -1,0 +1,58 @@
+.login-form {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  background-color: #AACE9B;
+}
+.login-form input[type=text], .login-form input[type=password] {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.login-button button {
+  width: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color:#AACE9B;
+  border-color: #49A37B;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #AACE9B;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
