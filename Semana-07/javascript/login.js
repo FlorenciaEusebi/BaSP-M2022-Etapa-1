@@ -28,14 +28,13 @@
                 var errorMsg = 'Please enter a valid Email';
               errorSpace.innerText = errorMsg;
               errorSpace.style = "color: red; font-size: 16px";
-              // validateEmail = false;
+              emailOkLogin = false;
           };
   };
 
   function eFocus() {
     emailInput.style = "border-color:none";
       var errorSpace = document.getElementById("email-error");
-    // errorSpace.removeChild(errorSpace.firstElementChild);
       var loginInput = document.getElementsByClassName("login-email-password");
     loginInput[0].style =  "border-bottom: solid #49A37B 0.5px";
   };
@@ -61,15 +60,18 @@
       pswError = document.getElementById('password-error');
       password.style.color = 'green';
       pswError.innerText = "";
+      pswOk = true;
     } else {
       var pswError = document.getElementById('password-error');
       pswError.innerText = 'The password should not contain special characters';
       pswError.style = "color: red; font-size: 16px";
+      pswOk = false;
     }
    } else {
       pswError = document.getElementById('password-error');
       pswError.innerText = 'The password should contain more than 7 characters';
       pswError.style = "color: red; font-size: 16px";
+      pswOk = false;
    }
   };
 
@@ -95,14 +97,19 @@
       if (emailOkLogin == false){
           modalTitle.textContent = 'Login failed';
           emailModalText.textContent = 'Email: ' + emailInput.value + ' not valid';
+          alert("User not created");
       } else if (pswOk == false) {
           modalTitle.textContent = 'Login failed';
           passwordModalText.textContent = 'Password: ' + passwordInput.value + ' not valid';
+          alert("User not created")
       } else {
           modalTitle.textContent = 'Logged in';
           emailModalText.textContent = 'Email: ' + emailInput.value + ' valid';
           passwordModalText.textContent = 'Password: ' + passwordInput.value + ' valid';
+          alert("logged in successfully\nEmail: " + emailInput.value + " valid\nPassword: "
+          + passwordInput.value + " valid");
       }
+
   }
 }
   span.onclick = function() {
