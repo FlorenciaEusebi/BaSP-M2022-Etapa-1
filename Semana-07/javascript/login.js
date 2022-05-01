@@ -5,9 +5,6 @@
   var logIn = document.getElementById('login-button');
   var emailOkLogin = false;
   var passwordOkLogin = false;
-  var modalTitle = document.getElementById('modal-header');
-  var emailModalText = document.getElementById('email-modal-text');
-  var passwordModalText = document.getElementById('password-modal-text');
 
   emailInput.addEventListener('blur', eBlur);
   emailInput.addEventListener('focus', eFocus);
@@ -17,7 +14,7 @@
 
   function eBlur() {
     var errorSpace = document.getElementById("email-error");
-    var validate = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value);
+    var validate = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(emailInput.value);
       if (validate) {
         email.style.color = 'green';
         emailOkLogin = true;
@@ -34,19 +31,17 @@
 
   function eFocus() {
     emailInput.style = "border-color:none";
-      var errorSpace = document.getElementById("email-error");
       var loginInput = document.getElementsByClassName("login-email-password");
     loginInput[0].style =  "border-bottom: solid #49A37B 0.5px";
   };
 
-  var pswOk;
   function pswBlur() {
-   pswOk = document.getElementById('password').value;
-    if (pswOk.length > 7) {
+    var passwordOkLogin = document.getElementById('password').value;
+    if (passwordOkLogin.length > 7) {
       var countLetters = 0;
       var countNumbers = 0;
-      for (let i = 0; i < pswOk.length; i++) {
-        var letter = pswOk.substring( i, i + 1);
+      for (var i = 0; i < passwordOkLogin.length; i++) {
+        var letter = passwordOkLogin.substring( i, i + 1);
         var letterCode = letter.charCodeAt();
         if (letter == Number(letter)){
           countNumbers += 1;
@@ -55,68 +50,98 @@
           countLetters += 1;
       };
     }
-    if (countLetters + countNumbers == pswOk.length) {
+    if (countLetters + countNumbers == passwordOkLogin.length) {
       passwordOkLogin = true;
-      pswError = document.getElementById('password-error');
+      var pswError = document.getElementById('password-error');
       password.style.color = 'green';
       pswError.innerText = "";
-      pswOk = true;
+      passwordOkLogin = true;
     } else {
       var pswError = document.getElementById('password-error');
       pswError.innerText = 'The password should not contain special characters';
       pswError.style = "color: red; font-size: 16px";
-      pswOk = false;
+      passwordOkLogin = false;
     }
    } else {
-      pswError = document.getElementById('password-error');
+      var pswError = document.getElementById('password-error');
       pswError.innerText = 'The password should contain more than 7 characters';
       pswError.style = "color: red; font-size: 16px";
-      pswOk = false;
+      passwordOkLogin = false;
    }
   };
 
   function pswFocus() {
     passwordInput.style = "border-color:none";
-    var pswError = document.getElementById('password-error');
     var loginInput = document.getElementsByClassName('login-email-password');
     loginInput[0].style =  "border-bottom: solid #49A37B 0.5px";
   };
 
-  var modal = document.getElementById("myModal");
-  var btn = document.getElementById("myLoginBtn");
-  var span = document.getElementsByClassName("close")[0];
 
-  btn.onclick = function(e) {
+
+  var myModalOk = document.getElementById("my-modal");
+  var modalTitle = document.getElementById("modal-header");
+  var text = document.getElementById("modal-text");
+  var btn = document.getElementById("my-login-btn");
+  var span = document.getElementsByClassName("close-span")[0];
+
+
+  btn.onclick = function (e) {
     e.preventDefault();
-    if (emailInput.value.length == 0){
-      outputRequired(emailInput, emailError);
-  } else if (passwordInput.value.length == 0) {
-      outputRequired(passwordInput, passwordError);
-  } else {
-      modal.style.display = "block";
-      if (emailOkLogin == false){
-          modalTitle.textContent = 'Login failed';
-          emailModalText.textContent = 'Email: ' + emailInput.value + ' not valid';
-          alert("User not created");
-      } else if (pswOk == false) {
-          modalTitle.textContent = 'Login failed';
-          passwordModalText.textContent = 'Password: ' + passwordInput.value + ' not valid';
-          alert("User not created")
-      } else {
-          modalTitle.textContent = 'Logged in';
-          emailModalText.textContent = 'Email: ' + emailInput.value + ' valid';
-          passwordModalText.textContent = 'Password: ' + passwordInput.value + ' valid';
-          alert("logged in successfully\nEmail: " + emailInput.value + " valid\nPassword: "
-          + passwordInput.value + " valid");
-      }
 
-  }
-}
+    var url = "https://basp-m2022-api-rest-server.herokuapp.com/login";
+    url = url + "?email=" + emailInput.value + "&password=" + passwordInput.value;
+
+    myModalOk.style.display = "block";
+
+    if (!emailOkLogin || !passwordOkLogin) {
+      myModalOk.style.display = "block";
+      var text = document.getElementById("modal-text");
+      text.innerHTML = "<p>Error</p>" + "<p>Complete with valid data</p>";
+      fetch(url)
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (jsonResponse) {
+        console.log(jsonResponse.errors[0].msg);
+        // myModalOk.style.display = "block";
+        // console.log(jsonResponse.name);
+        // jsonResponse.msg
+        // var createEmployee = {
+        //   name = data.name
+        //   surname = data.surname
+        // }
+        // localStorage.setItem("user", createEmployee);
+      })
+    } else {
+      // var text = document.getElementById("modal-text");
+      // text.innerHTML = "<h3>Error</h3>" + "<h3>Email invalid</h3>";
+      fetch(url)
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (jsonResponse) {
+        console.log(jsonResponse.msg);
+        // myModalOk.style.display = "block";
+        // console.log(jsonResponse.name);
+        // jsonResponse.msg
+        // var createEmployee = {
+        //   name = data.name
+        //   surname = data.surname
+        // }
+        // localStorage.setItem("user", createEmployee);
+      })
+
+      // myModalOk.style.display = "block";
+      // var text = document.getElementById("modal-text");
+      // text.innerHTML =
+      //   "<h3>Congratulations</h3>" + "<h3>log in successfull</h3>";
+    }
+  };
   span.onclick = function() {
-    modal.style.display = "none";
+    myModalOk.style.display = "none";
   }
   window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    if (event.target == myModalOk) {
+      myModalOk.style.display = "none";
     }
   }
