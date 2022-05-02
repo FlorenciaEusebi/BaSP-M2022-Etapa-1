@@ -622,34 +622,42 @@ btn.onclick = function (e) {
     passwordValid &&
     repeatValid
   ) {
-    var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
-      url = url + "?name=" + nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
-      birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value + "&city=" + cityData.value +
-       "&zip=" + zipCodeData.value + "&email=" + emailData.value + "&password=" + passwordData.value;
-      fetch(url)
+    text.innerHTML = "User successfully created";
+      // alert('User created');
+    } else {
+      text.innerHTML = "Please complete all the fields";
+      // alert('User not created');
+    } fetch ("https://basp-m2022-api-rest-server.herokuapp.com/signup".concat ("?name=" +
+    nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
+    birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value +
+    "&city=" + cityData.value + "&zip=" + zipCodeData.value + "&email=" + emailData.value +
+    "&password=" + passwordData.value))
+
       .then(function (response) {
-        return response.json()
+        return response.json();
         console.log("hello");
       })
       .then(function (jsonResponse) {
         console.log(jsonResponse.msg);
-        jsonResponse.msg = "WRITE A MESSAGE HERE" ;
+        jsonResponse.msg = "WRITE A MESSAGE HERE";
         console.log(jsonResponse.msg);
         myModal.style.display = "block";
       })
 
-      .catch(function (hola){
+      .catch(function (hola) {
         console.log("error");
-        
-      }
-      )
+      })
     } else {
 
-      var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
-      url = url + "?name=" + nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
-      birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value + "&city=" + cityData.value +
-       "&zip=" + zipCodeData.value + "&email=" + emailData.value + "&password=" + passwordData.value;
-      fetch(url)
+      // var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
+      // url = url + "?name=" + nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
+      // birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value + "&city=" + cityData.value +
+      //  "&zip=" + zipCodeData.value + "&email=" + emailData.value + "&password=" + passwordData.value;
+      fetch ("https://basp-m2022-api-rest-server.herokuapp.com/signup".concat ("?name=" +
+      nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
+      birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value +
+      "&city=" + cityData.value + "&zip=" + zipCodeData.value + "&email=" + emailData.value +
+      "&password=" + passwordData.value))
       .then(function (response) {
         return response.json()
       })
@@ -677,5 +685,4 @@ window.onclick = function (event) {
   if (event.target == myModal) {
     myModal.style.display = "none";
   }
-};
 }
