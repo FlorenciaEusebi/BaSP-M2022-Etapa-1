@@ -601,14 +601,14 @@ function repeatFocus() {
   repeatInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("createBtn");
-var span = document.getElementsByClassName("close")[0];
+var myModal = document.getElementById("my-modal");
+var btn = document.getElementById("create-btn");
+var span = document.getElementsByClassName("close-span")[0];
+var text = document.getElementById("id-error");
 
 btn.onclick = function (e) {
   e.preventDefault();
-  modal.style.display = "block";
-  var text = document.getElementById("id-error");
+  myModal.style.display = "block";
   if (
     nameValid &&
     surnameValid &&
@@ -622,22 +622,60 @@ btn.onclick = function (e) {
     passwordValid &&
     repeatValid
   ) {
-    text.innerHTML = `<p> User successfully created </p>`;
-    // alert("User created");
-  } else {
-    text.innerHTML = `<p> Please complete all the fields </p>`;
-    // alert("User not created");
-  }
-};
+    var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
+      url = url + "?name=" + nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
+      birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value + "&city=" + cityData.value +
+       "&zip=" + zipCodeData.value + "&email=" + emailData.value + "&password=" + passwordData.value;
+      fetch(url)
+      .then(function (response) {
+        return response.json()
+        console.log("hello");
+      })
+      .then(function (jsonResponse) {
+        console.log(jsonResponse.msg);
+        jsonResponse.msg = "WRITE A MESSAGE HERE" ;
+        console.log(jsonResponse.msg);
+        myModal.style.display = "block";
+      })
 
-// When the user clicks on <span> (x), close the modal
+      .catch(function (hola){
+        console.log("error");
+        
+      }
+      )
+    } else {
+
+      var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
+      url = url + "?name=" + nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
+      birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value + "&city=" + cityData.value +
+       "&zip=" + zipCodeData.value + "&email=" + emailData.value + "&password=" + passwordData.value;
+      fetch(url)
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (jsonResponse) {
+        console.log(jsonResponse);
+        myModal.style.display = "block";
+      })
+
+      .catch(function (hola){console.log(hola)}
+      )
+    }
+//     text.innerHTML = `<p> User successfully created </p>`;
+//     // alert("User created");
+//   } else {
+//     text.innerHTML = `<p> Please complete all the fields </p>`;
+//     // alert("User not created");
+//   }
+// };
+
 span.onclick = function () {
-  modal.style.display = "none";
+  myModal.style.display = "none";
 };
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == myModal) {
+    myModal.style.display = "none";
   }
 };
+}

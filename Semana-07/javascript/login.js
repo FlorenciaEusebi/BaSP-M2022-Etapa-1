@@ -64,7 +64,7 @@
     }
    } else {
       var pswError = document.getElementById('password-error');
-      pswError.innerText = 'The password should contain more than 7 characters';
+      pswError.innerText = 'The password should contain at least 7 characters';
       pswError.style = "color: red; font-size: 16px";
       passwordOkLogin = false;
    }
@@ -77,10 +77,11 @@
   };
 
 
-
+///////////////////////////// MODAL  /////////////////////////////
   var myModalOk = document.getElementById("my-modal");
   var modalTitle = document.getElementById("modal-header");
   var text = document.getElementById("modal-text");
+  var textTwo = document.getElementById("modal-text-two");
   var btn = document.getElementById("my-login-btn");
   var span = document.getElementsByClassName("close-span")[0];
 
@@ -88,55 +89,72 @@
   btn.onclick = function (e) {
     e.preventDefault();
 
-    var url = "https://basp-m2022-api-rest-server.herokuapp.com/login";
-    url = url + "?email=" + emailInput.value + "&password=" + passwordInput.value;
-
     myModalOk.style.display = "block";
 
-    if (!emailOkLogin || !passwordOkLogin) {
-      myModalOk.style.display = "block";
-      var text = document.getElementById("modal-text");
-      text.innerHTML = "<p>Error</p>" + "<p>Complete with valid data</p>";
-      fetch(url)
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (jsonResponse) {
-        console.log(jsonResponse.errors[0].msg);
-        // myModalOk.style.display = "block";
-        // console.log(jsonResponse.name);
-        // jsonResponse.msg
-        // var createEmployee = {
-        //   name = data.name
-        //   surname = data.surname
-        // }
-        // localStorage.setItem("user", createEmployee);
-      })
+    if (emailInput.value.length == 0){
+      emailError.innerHTML = "Email cannot be empty";
+      emailError.style = "color: red; font-size: 16px";
+    } else if (passwordInput.value.length == 0) {
+      pswError.innerHTML = "Password cannot be empty";
+      pswError.style = "color: red; font-size: 16px";
     } else {
-      // var text = document.getElementById("modal-text");
-      // text.innerHTML = "<h3>Error</h3>" + "<h3>Email invalid</h3>";
-      fetch(url)
-      .then(function (response) {
-        return response.json()
+      myModalOk.style.display = "block";
+      if (emailOkLogin == false){
+          modalTitle.textContent = 'Login failed';
+          text.textContent = 'Email: ' + emailInput.value + ' not valid';
+      } else if (passwordOkLogin == true) {
+          modalTitle.textContent = 'Login failed';
+          text.textContent = 'Password: ' + passwordInput.value + ' not valid';
+      } else {
+          modalTitle.textContent = 'Logged in';
+          text.textContent = 'Email: ' + emailInput.value + ' valid';
+          textTwo.textContent = 'Password: ' + passwordInput.value + ' valid';
+      }
+    } fetch ("https://basp-m2022-api-rest-server.herokuapp.com/login".concat
+        ("?email=", emailInput.value, "&password=", passwordInput.value))
+        .then (function (response) {
+          jsonResponse = response.json;
+          console.log('Response: ',response);
+          console.log('JsonResponse: ',response.json);
+          response.json();
+          if (response.ok == false){
+            console.log('Not working');
+        }
+    })
+    .then(function (jsonResponse) {
+      jsonResponse = response.json;
+        if(success) {
+            console.log('success');
+            // handleSuccess(jsonResponse)
+        } else {
+            console.log('not success');
+            // throw jsonResponse
+        }
+        console.log('respuesta uno');
+        // logica que quieren que se ejecute cuando llegue la respuesta
+    })
+    .catch(function (error) {
+      error = error.json;
+        // handleError(error);
+        console.log('respuesta dos');
+        console.log(jsonResponse);
+        // logica que. quieren que se ejecute si hay un error
+    })
+        .then (function (jsonResponse) {
+          jsonResponse = response.json;
+        if (success) {
+          console.log("success");
+      //     handleSuccess (jsonResponse)
+        } else {
+          console.log("NOT")
+      //     throw jsonResponse
+        }
       })
-      .then(function (jsonResponse) {
-        console.log(jsonResponse.msg);
-        // myModalOk.style.display = "block";
-        // console.log(jsonResponse.name);
-        // jsonResponse.msg
-        // var createEmployee = {
-        //   name = data.name
-        //   surname = data.surname
-        // }
-        // localStorage.setItem("user", createEmployee);
+      .catch (function(error){
+        // handleError(error)
       })
 
-      // myModalOk.style.display = "block";
-      // var text = document.getElementById("modal-text");
-      // text.innerHTML =
-      //   "<h3>Congratulations</h3>" + "<h3>log in successfull</h3>";
-    }
-  };
+
   span.onclick = function() {
     myModalOk.style.display = "none";
   }
@@ -145,3 +163,4 @@
       myModalOk.style.display = "none";
     }
   }
+}
