@@ -21,19 +21,6 @@ var passwordOutput = document.getElementById("password-error-box");
 var repeatData = document.getElementById("repeat-password");
 var repeatOutput = document.getElementById("repeat-psw-error-box");
 
-var modalTitle = document.getElementById("modal-header");
-var nameModalText = document.getElementById("name-modal-text");
-var surnameModalText = document.getElementById("surname-modal-text");
-var idModalText = document.getElementById("id-modal-text");
-var birthdayModalText = document.getElementById("bday-modal-text");
-var telephoneModalText = document.getElementById("telephone-modal-text");
-var addressModalText = document.getElementById("address-modal-text");
-var cityModalText = document.getElementById("city-modal-text");
-var postalCodeModalText = document.getElementById("postalCode-modal-text");
-var emailModalText = document.getElementById("email-modal-text");
-var password1ModalText = document.getElementById("password1-modal-text");
-var password2ModalText = document.getElementById("password2-modal-text");
-
 var nameValid = false;
 var surnameValid = false;
 var idValid = false;
@@ -69,14 +56,14 @@ passwordData.addEventListener("focus", passwordFocus);
 repeatData.addEventListener("blur", repeatBlur);
 repeatData.addEventListener("focus", repeatFocus);
 
-var nameOk;
+
 function nameBlur() {
   nameOk = document.getElementById("form-name").value;
   if (nameOk == "") {
+    nameValid = false;
     var nameError = document.getElementById("name-error-box");
     nameError.innerText = "Name cannot be empty";
     nameError.style = "color: red; font-size: 16px";
-    nameValid = false;
   } else if (nameOk.length > 2) {
     var countLetters = 0;
     for (let i = 0; i < nameOk.length; i++) {
@@ -93,22 +80,21 @@ function nameBlur() {
       }
     }
     if (!(countLetters == nameOk.length)) {
+      nameValid = false;
       var nameError = document.getElementById("name-error-box");
       nameError.innerText = "Name should only contain letters";
       nameError.style = "color: red; font-size: 16px";
-      nameValid = false;
     } else {
-      nameOk = true;
+      nameValid = true;
       nameError = document.getElementById("name-error-box");
       nameData.style.color = "green";
       nameError.innerText = "";
-      nameValid = true;
     }
   } else {
+    nameValid = false;
     nameError = document.getElementById("name-error-box");
     nameError.innerText = "Name should contain more than 3 letters";
     nameError.style = "color: red; font-size: 16px";
-    nameValid = false;
   }
 }
 
@@ -118,14 +104,13 @@ function nameFocus() {
   nameInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-var surnameOk;
 function surnameBlur() {
   surnameOk = document.getElementById("surname").value;
   if (surnameOk == "") {
+    surnameValid = false;
     var surnameError = document.getElementById("surname-error-box");
     surnameError.innerText = "Surname cannot be empty";
     surnameError.style = "color: red; font-size: 16px";
-    surnameValid = false;
   } else if (surnameOk.length > 2) {
     var countLetters = 0;
     for (var i = 0; i < surnameOk.length; i++) {
@@ -142,22 +127,21 @@ function surnameBlur() {
       }
     }
     if (!(countLetters == surnameOk.length)) {
+      surnameValid = false;
       var surnameError = document.getElementById("surname-error-box");
       surnameError.innerText = "Surname should only contain letters";
       surnameError.style = "color: red; font-size: 16px";
-      surnameValid = false;
     } else {
-      surnameOk = true;
       surnameError = document.getElementById("surname-error-box");
       surname.style.color = "green";
       surnameError.innerText = "";
       surnameValid = true;
     }
   } else {
+    surnameValid = false;
     surnameError = document.getElementById("surname-error-box");
     surnameError.innerText = "Surname should contain more than 3 letters";
     surnameError.style = "color: red; font-size: 16px";
-    surnameValid = false;
   }
 }
 
@@ -167,14 +151,13 @@ function surnameFocus() {
   surnameInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-// var idOK;
 function idBlur() {
   idOk = document.getElementById("id-number").value;
   if (idOk == "") {
+    idValid = false;
     var idError = document.getElementById("id-error-box");
     idError.innerText = "ID cannot be empty";
     idError.style = "color: red; font-size: 16px";
-    idValid = false;
   } else if (idOk.length > 6) {
     var countNumbers = 0;
     for (var i = 0; i < idOk.length; i++) {
@@ -184,22 +167,21 @@ function idBlur() {
       }
     }
     if (!(countNumbers == idOk.length)) {
+      idValid = false;
       var idError = document.getElementById("id-error-box");
       idError.innerText = "ID should only contain letters";
       idError.style = "color: red; font-size: 16px";
-      idValid = false;
     } else {
-      idOk = true;
       idError = document.getElementById("id-error-box");
       idData.style.color = "green";
       idError.innerText = "";
       idValid = true;
     }
   } else {
+    idValid = false;
     idError = document.getElementById("id-error-box");
     idError.innerText = "ID should contain more than 7 numbers";
     idError.style = "color: red; font-size: 16px";
-    idValid = false;
   }
 }
 
@@ -209,7 +191,6 @@ function idFocus() {
   idInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-// var bdayOk;
 function bdayBlur() {
   var bdayValue = birthdayData.value;
   var day = bdayValue.substring(0, 2);
@@ -221,30 +202,29 @@ function bdayBlur() {
   month = Number(month);
   year = Number(year);
   if (day < 1 || day > 31) {
+    birthdayValid = false;
     var dayError = document.getElementById("birth-error-box");
     dayError.innerText = "Day should be between 1 and 31";
     dayError.style = "color: red; font-size: 16px";
-    birthdayValid = false;
   } else if (month < 1 || month > 12) {
+    birthdayValid = false;
     var monthError = document.getElementById("birth-error-box");
     monthError.innerText = "Month should be between 1 and 12";
     monthError.style = "color: red; font-size: 16px";
-    birthdayValid = false;
   } else if (year < 1900 || year > 2018) {
+    birthdayValid = false;
     var yearError = document.getElementById("birth-error-box");
     yearError.innerText = "Year should be between 1900 and 2018";
     yearError.style = "color: red; font-size: 16px";
+  } else if (slash != "/" || secondSlash != "/") {
     birthdayValid = false;
-  } else if (slash != '/' || secondSlash != '/') {
     var slashError = document.getElementById("birth-error-box");
     slashError.innerText = "Use a slash";
     slashError.style = "color: red; font-size: 16px";
-    birthdayValid = false;
   } else {
     birthdayError = document.getElementById("birth-error-box");
     birthdayData.style.color = "green";
     birthdayError.innerText = "";
-    bdayOk = true;
     birthdayValid = true;
   }
 }
@@ -255,39 +235,37 @@ function bdayFocus() {
   bdayInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-var phoneOk;
 function phoneBlur() {
   var phoneOk = document.getElementById("phone-number").value;
   if (phoneOk == "") {
+    phoneValid = false;
     var phoneError = document.getElementById("phone-error-box");
     phoneError.innerText = "Phone cannot be empty";
     phoneError.style = "color: red; font-size: 16px";
-    phoneValid = false;
   } else if (phoneOk.length == 10) {
     var countCharacters = 0;
     for (var i = 0; i < phoneOk.length; i++) {
       var nCharacters = phoneOk.substring(i, i + 1);
-      if (!(nCharacters == Number(nCharacters))){
+      if (!(nCharacters == Number(nCharacters))) {
         countCharacters += 1;
       }
     }
-    if ((countCharacters == phoneOk.length)) {
+    if (countCharacters == phoneOk.length) {
+      phoneValid = false;
       var phoneError = document.getElementById("phone-error-box");
       phoneError.innerText = "Phone N° should contain 10 characters";
       phoneError.style = "color: red; font-size: 16px";
-      phoneValid = false;
     } else {
-      phoneOk = true;
       phoneError = document.getElementById("phone-error-box");
       phoneData.style.color = "green";
       phoneError.innerText = "";
       phoneValid = true;
     }
   } else {
+    phoneValid = false;
     phoneError = document.getElementById("phone-error-box");
     phoneError.innerText = "Phone should only contain numbers";
     phoneError.style = "color: red; font-size: 16px";
-    phoneValid = false;
   }
 }
 
@@ -297,22 +275,22 @@ function phoneFocus() {
   phoneInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-var addressOk;
 function addressBlur() {
   addressOk = document.getElementById("address").value;
   if (addressOk == "") {
+    addressValid = false;
     var addressError = document.getElementById("address-error-box");
     addressError.innerText = "Address cannot be empty";
     addressError.style = "color: red; font-size: 16px";
-    addressValid = false;
   } else if (addressOk.length < 5) {
-    addressOk = true;
+    addressValid = true;
+    // addressOk = true;
   } else {
     if (addressOk.indexOf(" ") === -1) {
+      addressValid = false;
       var addressError = document.getElementById("address-error-box");
       addressError.innerText = "Address should contain a space";
       addressError.style = "color: red; font-size: 16px";
-      addressValid = false;
     } else {
       var letterCount = 0;
       var spaceCount = 0;
@@ -335,21 +313,20 @@ function addressBlur() {
         }
       }
       if (letterCount == 0 || numberCount == 0) {
+        addressValid = false;
         var addressError = document.getElementById("address-error-box");
         addressError.innerText = "Address should contain a space";
         addressError.style = "color: red; font-size: 16px";
-        addressValid = false;
       } else if (letterCount + spaceCount + numberCount == addressOk.length) {
-        addressOk = true;
         addressError = document.getElementById("address-error-box");
         addressData.style.color = "green";
         addressError.innerText = "";
         addressValid = true;
       } else {
+        addressValid = false;
         var addressError = document.getElementById("address-error-box");
         addressError.innerText = "Insert special characters";
         addressError.style = "color: red; font-size: 16px";
-        addressValid = false;
       }
     }
   }
@@ -361,19 +338,18 @@ function addressFocus() {
   addressInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-var cityOk;
 function cityBlur() {
   cityOk = document.getElementById("city").value;
   if (cityOk == "") {
+    cityValid = false;
     var cityError = document.getElementById("city-error-box");
     cityError.innerText = "City cannot be empty";
     cityError.style = "color: red; font-size: 16px";
-    cityValid = false;
   } else if (cityOk.length < 4) {
+    cityValid = false;
     var cityError = document.getElementById("city-error-box");
     cityError.innerText = "City should contain more than 3 characters";
     cityError.style = "color: red; font-size: 16px";
-    cityValid = false;
   } else {
     var nOfLetters = 0;
     var nOfNumbers = 0;
@@ -395,24 +371,24 @@ function cityBlur() {
       }
     }
     if (nOfLetters == 0 || nOfNumbers == 0) {
+      cityValid = false;
       var cityError = document.getElementById("city-error-box");
       cityError.innerText = "City should contain numbers and letters";
       cityError.style = "color: red; font-size: 16px";
-      cityValid = false;
     } else if (nOfLetters + nOfNumbers == cityOk.length) {
-      cityOk = true;
       cityError = document.getElementById("city-error-box");
       cityData.style.color = "green";
       cityError.innerText = "";
       cityValid = true;
     } else {
+      cityValid = false;
       var cityError = document.getElementById("city-error-box");
       cityError.innerText = "City should not contain special characters";
       cityError.style = "color: red; font-size: 16px";
-      cityValid = false;
     }
   }
 }
+
 function cityFocus() {
   cityData.style = "border-color:none";
   var cityInput = document.getElementsByClassName("sing-up-input");
@@ -422,10 +398,10 @@ function cityFocus() {
 function zipCodeBlur() {
   var zipCodeOk = document.getElementById("zip-code").value;
   if (zipCodeOk == "") {
+    zipCodeValid = false;
     var zipCodeError = document.getElementById("zip-code-error-box");
     zipCodeError.innerText = "Zip Code cannot be empty";
     zipCodeError.style = "color: red; font-size: 16px";
-    zipCodeValid = false;
   } else if (zipCodeOk.length > 3 && zipCodeOk.length < 6) {
     var numberOfCharacters = 0;
     for (var i = 0; i < zipCodeOk.length; i++) {
@@ -435,22 +411,22 @@ function zipCodeBlur() {
       }
     }
     if (numberOfCharacters == zipCodeOk.length) {
-      zipCodeOk = true;
       zipCodeError = document.getElementById("zip-code-error-box");
       zipCodeData.style.color = "green";
       zipCodeError.innerText = "";
       zipCodeValid = true;
     } else {
+      zipCodeValid = false;
       var zipCodeError = document.getElementById("zip-code-error-box");
       zipCodeError.innerText = "Zip Code should only contain numbers";
       zipCodeError.style = "color: red; font-size: 16px";
-      zipCodeValid = false;
     }
   } else {
-    zipCodeError = document.getElementById("zip-code-error-box");
-    zipCodeError.innerText = "Zip Code should contain between 4 and 5 characters";
-    zipCodeError.style = "color: red; font-size: 16px";
     zipCodeValid = false;
+    zipCodeError = document.getElementById("zip-code-error-box");
+    zipCodeError.innerText =
+      "Zip Code should contain between 4 and 5 characters";
+    zipCodeError.style = "color: red; font-size: 16px";
   }
 }
 
@@ -460,28 +436,27 @@ function zipCodeFocus() {
   zipCodeInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-var emailOk;
 function emailBlur() {
   var emailOk = document.getElementById("email").value;
   var validateEmail = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(emailData.value);
   var emailError = document.getElementById("email-error-box");
   if (emailOk == "") {
+    emailValid = false;
     emailError.innerText = "Email cannot be empty";
     emailError.style = "color: red; font-size: 16px";
-    emailValid = false;
   } else if (validateEmail) {
-    email.style.color = "green";
-    emailOk = true;
-    emailError.innerText = "";
+    // emailOk = true;
     emailValid = true;
+    email.style.color = "green";
+    emailError.innerText = "";
   } else {
+    emailValid = false;
+    validateEmail = false;
     var emailInput = document.getElementsByClassName("sing-up-input");
     emailInput[0].style = "border-bottom: solid 2px red";
     var emailErrorSignUp = "Please enter a valid Email";
     emailError.innerText = emailErrorSignUp;
     emailError.style = "color: red; font-size: 16px";
-    emailValid = false;
-    validateEmail = false;
   }
 }
 
@@ -491,14 +466,13 @@ function emailFocus() {
   emailInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-
 function passwordBlur() {
   var correctPsw = document.getElementById("password").value;
   var passwordError = document.getElementById("password-error-box");
   if (correctPsw == "") {
+    passwordValid = false;
     passwordError.innerText = "Password cannot be empty";
     passwordError.style = "color: red; font-size: 16px";
-    passwordValid = false;
   } else if (correctPsw.length > 7) {
     var countPswLetters = 0;
     var countPswNumbers = 0;
@@ -521,20 +495,19 @@ function passwordBlur() {
       }
     }
     if (countPswLetters + countPswNumbers == correctPsw.length) {
-      correctPsw = true;
       password.style.color = "green";
       passwordError.innerText = "";
       passwordValid = true;
     } else {
+      passwordValid = false;
       passwordError.innerText =
         "Password should not contain special characters";
       passwordError.style = "color: red; font-size: 16px";
-      passwordValid = false;
     }
   } else {
+    passwordValid = false;
     passwordError.innerText = "Password should contain more than 7 characters";
     passwordError.style = "color: red; font-size: 16px";
-    passwordValid = false;
   }
 }
 
@@ -544,14 +517,13 @@ function passwordFocus() {
   passwordInput[0].style = "border-bottom: solid #49A37B 0.5px";
 }
 
-var repeatOk;
 function repeatBlur() {
   repeatOk = document.getElementById("repeat-password").value;
   if (repeatOk == "") {
+    repeatValid = false;
     var repeatError = document.getElementById("repeat-psw-error-box");
     repeatError.innerText = "Repeat password cannot be empty";
     repeatError.style = "color: red; font-size: 16px";
-    repeatValid = false;
   } else if (repeatOk.length > 7) {
     var countRepeatLetters = 0;
     var countRepeatNumbers = 0;
@@ -574,24 +546,23 @@ function repeatBlur() {
       }
     }
     if (countRepeatLetters + countRepeatNumbers == repeatOk.length) {
-      repeatOk = true;
       repeatError = document.getElementById("repeat-psw-error-box");
       repeatData.style.color = "green";
       repeatError.innerText = "";
       repeatValid = true;
     } else {
+      repeatValid = false;
       var repeatError = document.getElementById("repeat-psw-error-box");
       repeatError.innerText =
         "The password should not contain special characters";
       repeatError.style = "color: red; font-size: 16px";
-      repeatValid = false;
     }
   } else {
+    repeatValid = false;
     repeatError = document.getElementById("repeat-psw-error-box");
     repeatError.innerText =
       "The password should contain more than 7 characters";
     repeatError.style = "color: red; font-size: 16px";
-    repeatValid = false;
   }
 }
 
@@ -602,80 +573,120 @@ function repeatFocus() {
 }
 
 var myModal = document.getElementById("my-modal");
+var modalTitle = document.getElementById("modal-header");
 var btn = document.getElementById("create-btn");
 var span = document.getElementsByClassName("close-span")[0];
 var text = document.getElementById("id-error");
 
 btn.onclick = function (e) {
   e.preventDefault();
-  myModal.style.display = "block";
-  if (
-    nameValid &&
-    surnameValid &&
-    idValid &&
-    birthdayValid &&
-    phoneValid &&
-    addressValid &&
-    cityValid &&
-    zipCodeValid &&
-    emailValid &&
-    passwordValid &&
-    repeatValid
-  ) {
-    text.innerHTML = "User successfully created";
-      // alert('User created');
-    } else {
-      text.innerHTML = "Please complete all the fields";
-      // alert('User not created');
-    } fetch ("https://basp-m2022-api-rest-server.herokuapp.com/signup".concat ("?name=" +
-    nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
-    birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value +
-    "&city=" + cityData.value + "&zip=" + zipCodeData.value + "&email=" + emailData.value +
-    "&password=" + passwordData.value))
 
+  myModal.style.display = "block";
+
+  if (nameValid == false) {
+    modalTitle.textContent = "Name is not valid";
+    text.textContent = "Name: " + nameData.value + " is not valid";
+  } else if (surnameValid == false) {
+    modalTitle.textContent = "Surname is not valid";
+    text.textContent = "Surname: " + surnameData.value + " is not valid";
+  } else if (idValid == false) {
+    modalTitle.textContent = "ID is not valid";
+    text.textContent = "ID: " + idData.value + " is not valid";
+  } else if (birthdayValid == false) {
+    modalTitle.textContent = "Date of Birth is not valid";
+    text.textContent =
+      "Date of Birth: " + birthdayData.value + " is not valid";
+  } else if (phoneValid == false) {
+    modalTitle.textContent = "Phone number is not valid";
+    text.textContent = "Phone: " + phoneData.value + " is not valid";
+  } else if (addressValid == false) {
+    modalTitle.textContent = "Address is not valid";
+    text.textContent = "Address: " + addressData.value + " is not valid";
+  } else if (cityValid == false) {
+    modalTitle.textContent = "City is not valid";
+    text.textContent = "City: " + cityData.value + " is not valid";
+  } else if (zipCodeValid == false) {
+    modalTitle.textContent = "Zip Code is not valid";
+    text.textContent = "Zip Code: " + zipCodeData.value + " is not valid";
+  } else if (emailValid == false) {
+    modalTitle.textContent = "Email is not valid";
+    text.textContent = "Email: " + emailData.value + " is not valid";
+  } else if (passwordValid == false) {
+    modalTitle.textContent = "Password is not valid";
+    text.textContent = "Password: " + passwordData.value + " is not valid";
+  } else if (repeatValid == false) {
+    modalTitle.textContent = "Repeat password is not valid";
+    text.textContent = "Repeat password: " + repeatPass.value + " is not valid";
+  } else if (passwordData.value !== repeatData.value) {
+    modalTitle.textContent = "ERROR";
+    text.textContent = "Passwords do not match";
+  } else if (
+    nameValid == true &&
+    surnameValid == true &&
+    idValid == true &&
+    birthdayValid == true &&
+    phoneValid == true &&
+    addressValid == true &&
+    cityValid == true &&
+    zipCodeValid == true &&
+    emailValid == true &&
+    passwordValid == true &&
+    repeatValid == true
+  ) {
+    fetch(
+      "https://basp-m2022-api-rest-server.herokuapp.com/signup".concat(
+        "?name=" +
+          nameData.value +
+          "&lastName=" +
+          surnameData.value +
+          "&id=" +
+          idData.value +
+          "&dob=" +
+          birthdayData.value +
+          "&phone=" +
+          phoneData.value +
+          "&address=" +
+          addressData.value +
+          "&city=" +
+          cityData.value +
+          "&zip=" +
+          zipCodeData.value +
+          "&email=" +
+          emailData.value +
+          "&password=" +
+          passwordData.value
+      )
+    )
       .then(function (response) {
         return response.json();
-        console.log("hello");
       })
-      .then(function (jsonResponse) {
-        console.log(jsonResponse.msg);
-        jsonResponse.msg = "WRITE A MESSAGE HERE";
-        console.log(jsonResponse.msg);
-        myModal.style.display = "block";
+      .then(function (responseTwo) {
+        if (responseTwo.success) {
+          modalTitle.textContent = responseTwo.msg;
+          text.textContent = "Name: " + responseTwo.data.name + " Surname: " + responseTwo.data.lastName +
+                          " ID: " + responseTwo.data.dni + " Date of Birth: " + responseTwo.data.dob + " Phone: " + responseTwo.data.phone +
+                          " Address: " + responseTwo.data.address + " City: " + responseTwo.data.city + " Zip Code: " + responseTwo.data.zip +
+                          " Email: " + responseTwo.data.email + " Password: " + responseTwo.data.password;
+          localStorage.setItem("Name ", responseTwo.data.name);
+          localStorage.setItem("Surname ", responseTwo.data.lastName);
+          localStorage.setItem("ID ", responseTwo.data.dni);
+          localStorage.setItem("Birthday ", responseTwo.data.dob);
+          localStorage.setItem("Phone ", responseTwo.data.phone);
+          localStorage.setItem("Address ", responseTwo.data.address);
+          localStorage.setItem("City ", responseTwo.data.city);
+          localStorage.setItem("Post Code ", responseTwo.data.zip);
+          localStorage.setItem("Email ", responseTwo.data.email);
+          localStorage.setItem("Password ", responseTwo.data.password);
+        } else {
+          throw responseTwo;
+        }
       })
-
-      .catch(function (hola) {
-        console.log("error");
-      })
-    } else {
-
-      // var url = "https://basp-m2022-api-rest-server.herokuapp.com/signup";
-      // url = url + "?name=" + nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
-      // birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value + "&city=" + cityData.value +
-      //  "&zip=" + zipCodeData.value + "&email=" + emailData.value + "&password=" + passwordData.value;
-      fetch ("https://basp-m2022-api-rest-server.herokuapp.com/signup".concat ("?name=" +
-      nameData.value + "&lastName=" + surnameData.value + "&dni=" + idData.value + "&dob=" +
-      birthdayData.value + "&phone=" + phoneData.value + "&address=" + addressData .value +
-      "&city=" + cityData.value + "&zip=" + zipCodeData.value + "&email=" + emailData.value +
-      "&password=" + passwordData.value))
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (jsonResponse) {
-        console.log(jsonResponse);
-        myModal.style.display = "block";
-      })
-
-      .catch(function (hola){console.log(hola)}
-      )
-    }
-//     text.innerHTML = `<p> User successfully created </p>`;
-//     // alert("User created");
-//   } else {
-//     text.innerHTML = `<p> Please complete all the fields </p>`;
-//     // alert("User not created");
-//   }
-// };
+      .catch(function (error) {
+        console.log(error);
+        text.textContent = error.msg;
+      });
+  }
+};
 
 span.onclick = function () {
   myModal.style.display = "none";
@@ -685,4 +696,4 @@ window.onclick = function (event) {
   if (event.target == myModal) {
     myModal.style.display = "none";
   }
-}
+};
