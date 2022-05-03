@@ -56,14 +56,13 @@ passwordData.addEventListener("focus", passwordFocus);
 repeatData.addEventListener("blur", repeatBlur);
 repeatData.addEventListener("focus", repeatFocus);
 
-
 function nameBlur() {
   nameOk = document.getElementById("form-name").value;
   if (nameOk == "") {
-    nameValid = false;
     var nameError = document.getElementById("name-error-box");
     nameError.innerText = "Name cannot be empty";
     nameError.style = "color: red; font-size: 16px";
+    nameValid = false;
   } else if (nameOk.length > 2) {
     var countLetters = 0;
     for (let i = 0; i < nameOk.length; i++) {
@@ -80,21 +79,21 @@ function nameBlur() {
       }
     }
     if (!(countLetters == nameOk.length)) {
-      nameValid = false;
       var nameError = document.getElementById("name-error-box");
       nameError.innerText = "Name should only contain letters";
       nameError.style = "color: red; font-size: 16px";
+      nameValid = false;
     } else {
-      nameValid = true;
       nameError = document.getElementById("name-error-box");
       nameData.style.color = "green";
       nameError.innerText = "";
+      nameValid = true;
     }
   } else {
-    nameValid = false;
     nameError = document.getElementById("name-error-box");
     nameError.innerText = "Name should contain more than 3 letters";
     nameError.style = "color: red; font-size: 16px";
+    nameValid = false;
   }
 }
 
@@ -193,9 +192,9 @@ function idFocus() {
 
 function bdayBlur() {
   var bdayValue = birthdayData.value;
-  var day = bdayValue.substring(0, 2);
+  var day = bdayValue.substring(3, 5);
   var slash = bdayValue.substring(2, 3);
-  var month = bdayValue.substring(3, 5);
+  var month = bdayValue.substring(0, 2);
   var secondSlash = bdayValue.substring(5, 6);
   var year = bdayValue.substring(6, 10);
   day = Number(day);
@@ -206,21 +205,25 @@ function bdayBlur() {
     var dayError = document.getElementById("birth-error-box");
     dayError.innerText = "Day should be between 1 and 31";
     dayError.style = "color: red; font-size: 16px";
+    birthdayOutput.textContent = "Format mm/dd/yyyy";
   } else if (month < 1 || month > 12) {
     birthdayValid = false;
     var monthError = document.getElementById("birth-error-box");
     monthError.innerText = "Month should be between 1 and 12";
     monthError.style = "color: red; font-size: 16px";
+    birthdayOutput.textContent = "Format mm/dd/yyyy";
   } else if (year < 1900 || year > 2018) {
     birthdayValid = false;
     var yearError = document.getElementById("birth-error-box");
     yearError.innerText = "Year should be between 1900 and 2018";
     yearError.style = "color: red; font-size: 16px";
+    birthdayOutput.textContent = "Format mm/dd/yyyy";
   } else if (slash != "/" || secondSlash != "/") {
     birthdayValid = false;
     var slashError = document.getElementById("birth-error-box");
     slashError.innerText = "Use a slash";
     slashError.style = "color: red; font-size: 16px";
+    birthdayOutput.textContent = "Format mm/dd/yyyy";
   } else {
     birthdayError = document.getElementById("birth-error-box");
     birthdayData.style.color = "green";
@@ -594,8 +597,7 @@ btn.onclick = function (e) {
     text.textContent = "ID: " + idData.value + " is not valid";
   } else if (birthdayValid == false) {
     modalTitle.textContent = "Date of Birth is not valid";
-    text.textContent =
-      "Date of Birth: " + birthdayData.value + " is not valid";
+    text.textContent = "Date of Birth: " + birthdayData.value + " is not valid";
   } else if (phoneValid == false) {
     modalTitle.textContent = "Phone number is not valid";
     text.textContent = "Phone: " + phoneData.value + " is not valid";
@@ -639,7 +641,7 @@ btn.onclick = function (e) {
           nameData.value +
           "&lastName=" +
           surnameData.value +
-          "&id=" +
+          "&dni=" +
           idData.value +
           "&dob=" +
           birthdayData.value +
@@ -663,31 +665,44 @@ btn.onclick = function (e) {
       .then(function (responseTwo) {
         if (responseTwo.success) {
           modalTitle.textContent = responseTwo.msg;
-          text.textContent = "Name: " + responseTwo.data.name + " Surname: " + responseTwo.data.lastName +
-                          " ID: " + responseTwo.data.dni + " Date of Birth: " + responseTwo.data.dob + " Phone: " + responseTwo.data.phone +
-                          " Address: " + responseTwo.data.address + " City: " + responseTwo.data.city + " Zip Code: " + responseTwo.data.zip +
-                          " Email: " + responseTwo.data.email + " Password: " + responseTwo.data.password;
+          text.textContent =
+            "Name: " +
+            responseTwo.data.name +
+            " Surname: " +
+            responseTwo.data.lastName +
+            " ID: " +
+            responseTwo.data.dni +
+            " Date of Birth: " +
+            responseTwo.data.dob +
+            " Phone: " +
+            responseTwo.data.phone +
+            " Address: " +
+            responseTwo.data.address +
+            " City: " +
+            responseTwo.data.city +
+            " Zip Code: " +
+            responseTwo.data.zip +
+            " Email: " +
+            responseTwo.data.email +
+            " Password: " +
+            responseTwo.data.password;
           localStorage.setItem("Name ", responseTwo.data.name);
           localStorage.setItem("Surname ", responseTwo.data.lastName);
           localStorage.setItem("ID ", responseTwo.data.dni);
-          localStorage.setItem("Birthday ", responseTwo.data.dob);
+          localStorage.setItem("Date of Birth ", responseTwo.data.dob);
           localStorage.setItem("Phone ", responseTwo.data.phone);
           localStorage.setItem("Address ", responseTwo.data.address);
           localStorage.setItem("City ", responseTwo.data.city);
-          localStorage.setItem("Post Code ", responseTwo.data.zip);
+          localStorage.setItem("Zip Code ", responseTwo.data.zip);
           localStorage.setItem("Email ", responseTwo.data.email);
           localStorage.setItem("Password ", responseTwo.data.password);
-        } else {
-          throw responseTwo;
         }
       })
       .catch(function (error) {
         console.log(error);
-        text.textContent = error.msg;
       });
   }
 };
-
 span.onclick = function () {
   myModal.style.display = "none";
 };
